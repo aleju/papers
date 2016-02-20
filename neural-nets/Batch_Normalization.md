@@ -25,5 +25,9 @@ Year: 2015
   * Saturating nonlinearities can be safely used. (Optimized gradient flow prevents the network from getting stuck in saturated modes.)
   * BN reduces the need for dropout. (As it has a regularizing effect.)
 
-
-
+* How BN works:
+  * BN normalizes layer inputs to zero mean and unit variance. That is called *whitening*.
+  * Naive method: Train on a batch. Update model parameters. Then normalize. Doesn't work: Leads to exploding biases while distribution parameters (mean, variance) don't change.
+  * A proper method has to include the current example *and* all previous examples in the normalization step.
+  * This leads to calculating in covariance matrix and its inverse square root. That's expensive. The authors found a faster way.
+  
