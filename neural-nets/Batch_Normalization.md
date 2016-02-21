@@ -30,4 +30,11 @@ Year: 2015
   * Naive method: Train on a batch. Update model parameters. Then normalize. Doesn't work: Leads to exploding biases while distribution parameters (mean, variance) don't change.
   * A proper method has to include the current example *and* all previous examples in the normalization step.
   * This leads to calculating in covariance matrix and its inverse square root. That's expensive. The authors found a faster way.
-  
+
+* (3) Normalization via Mini-Batch Statistics
+  * Each feature (component) is normalized individually. (Due to cost, differentiability.)
+  * Normalization according to: `componentNormalizedValue = (componentOldValue - E[component]) / sqrt(Var(component))`
+  * Normalizing each component can reduce the expressitivity of nonlinearities. Hence the formula is changed so that it can also learn the identiy function.
+  * Full formula: `newValue = gamma * componentNormalizedValue + beta` (gamma and beta learned per component)
+  * E and Var are estimated for each mini batch.
+  * BN is fully differentiable. Formulas for gradients/backpropagation are at the end of chapter 3 (page 4, left).
