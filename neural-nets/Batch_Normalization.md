@@ -38,3 +38,10 @@ Year: 2015
   * Full formula: `newValue = gamma * componentNormalizedValue + beta` (gamma and beta learned per component)
   * E and Var are estimated for each mini batch.
   * BN is fully differentiable. Formulas for gradients/backpropagation are at the end of chapter 3 (page 4, left).
+
+* (3.1) Training and Inference with Batch-Normalized Networks
+  * During test time, E and Var of each component can be estimated using all examples or alternatively with moving averages estimated during training.
+  * During test time, the BN formulas can be simplified to a single linear transformation.
+
+* (3.2) Batch-Normalized Convolutional Networks
+  * 
