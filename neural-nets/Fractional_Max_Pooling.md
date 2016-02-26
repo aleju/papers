@@ -8,7 +8,27 @@
 
 # Summary
 
+* What and why
+  * Traditionally neural nets use max pooling with 2x2 grids (2MP).
+  * 2MP reduces the image dimensions by a factor of 2.
+  * An alternative would be to use pooling schemes that reduce by factors other than two, e.g. `1 < factor < 2`.
+  * Pooling by a factor of `sqrt(2)` would allow twice as many pooling layers as 2MP, resulting in "softer" image size reduction throughout the network.
+  * Fractional Max Pooling (FMP) is such a method to perform max pooling by factors other than 2.
 
+* How
+  * In 2MP you move a 2x2 grid always by 2 pixels.
+  * Imagine that these step sizes follow a sequence, i.e. for 2MP: `2222222...`
+  * If you mix in just a single `1` you get a pooling factor of `<2`.
+  * By chosing the right amount of `1s` vs. `2s` you can pool by any factor between 1 and 2.
+  * The sequences of `1s` and `2s` can be generated in fully *random* order or in *pseudorandom* order, where pseudorandom basically means "predictable sub patterns" (e.g. 211211211211211...).
+  * FMP can happen *disjoint* or *overlapping*. Disjoint means 2x2 grids, overlapping means 3x3.
+
+* Results
+  * FMP seems to perform generally better than 2MP.
+  * Better results on various tests, including CIFAR-10 and CIFAR-100 (often quite significant improvement).
+  * Best configuration seems to be *random* sequences with *overlapping* regions.
+  * Results are especially better if each test is repeated multiple times per image (as the random sequence generation creates randomness, similar to dropout). First 5-10 repetitions seem to be most valuable, but even 100+ give some improvement.
+  * An FMP-factor of `sqrt(2)` was usually used.
 
 -------------------------
 
@@ -49,3 +69,13 @@
   * The output of the network can be averaged over several forward passes (for the same image). The result then becomes more accurate (especially up to >=6 forward passes).
 
 * (4) Results
+  * Tested on MNIST and CIFAR-100
+  * Architectures (somehow different from (3)?):
+    * MNIST: 36x36 img -> 6 times (32 conv (3x3?) -> FMP alpha=sqrt(2)) -> ? -> ? -> output
+    * CIFAR-100: 94x94 img -> 12 times (64 conv (3x3?) -> FMP alpha=2^(1/3)) -> ? -> ? -> output
+  * Overlapping pooling regions seemed to perform better than disjoint regions.
+  * Random FMP seemed to perform better than pseudorandom FMP.
+  * Other tests:
+    * "The Online Handwritten Assamese Characters Dataset": FMP performed better than 2MP (though their network architecture seemed to have significantly more parameters
+    * "CASIA-OLHWDB1.1 database": FMP performed better than 2MP (again, seemed to have more parameters)
+    * CIFAR-10: FMP performed better than current best network (especially with many tests per image)
