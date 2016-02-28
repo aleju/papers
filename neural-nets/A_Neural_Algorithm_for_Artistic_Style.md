@@ -8,6 +8,38 @@
 
 # Summary
 
+* What
+  * The paper describes a method to separate content and style from each other in an image.
+  * The style can then be transfered to a new image.
+  * Examples:
+    * Let a photograph look like a painting of van Gogh.
+    * Improve a dark beach photo by taking the style from a sunny beach photo.
+
+* How
+  * They use the pretrained 19-layer VGG net as their base network.
+  * They assume that two images are provided: One with the *content*, one with the desired *style*.
+  * They feed the content image through the VGG net and extract the activations of the last convolutional layer. These activations are called the *content representation*.
+  * They feed the style image through the VGG net and extract the activations of all convolutional layers. They transform each layer to a *Gram Matrix* representation. These Gram Matrices are called the *style representation*.
+  * How to calculate a *Gram Matrix*:
+    * Take the activations of a layer. That layer will contain some convolution filters (e.g. 128), each one having its own activations.
+    * Convert each filter's activations to a (1-dimensional) vector.
+    * Pick all pairs of filters. Calculate the scalar product of both filter's vectors.
+    * Add the scalar product result as an entry to a matrix of size `#filters x #filters` (e.g. 128x128).
+    * Repeat that for every pair to get the Gram Matrix.
+    * The Gram Matrix roughly represents the *texture* of the image.
+  * Now you have the content representation (activations of a layer) and the style representation (Gram Matrices).
+  * Create a new image of the size of the content image. Fill it with random white noise.
+  * Feed that image through VGG to get its content representation and style representation. (This step will be repeated many times during the image creation.)
+  * Make changes to the new image using gradient descent to optimize a loss function.
+    * The loss function has two components:
+      * The mean squared error between the new image's content representation and the previously extracted content representation.
+      * The mean squared error between the new image's style representation and the previously extracted style representation.
+    * Add up both components to get the total loss.
+    * Give both components a weight to alter for more/less style matching (at the expense of content matching).
+
+Example images:
+
+![Examples](images/A_Neural_Algorithm_for_Artistic_Style__examples.jpg?raw=true "Examples")
 
 -------------------------
 
@@ -55,7 +87,7 @@
   * They use average pooling instead of max pooling, as that produced slightly better results.
 
 * Page 10, Methods
-  * The information about the image that is contained in layers can be visualized. To do that, extract the features of a layer as the labels, then start with a white noise image and change it via gradient descendt until the generated features have minimal distance (MSE) to the extracted features.
+  * The information about the image that is contained in layers can be visualized. To do that, extract the features of a layer as the labels, then start with a white noise image and change it via gradient descent until the generated features have minimal distance (MSE) to the extracted features.
   * The build a style representation by calculating Gram Matrices for each layer.
 
 * Page 11, Methods
@@ -69,5 +101,5 @@
 * Page 12, Methods
   * To transfer the style of a painting to an existing image, proceed as follows:
     * Start with a white noise image.
-    * Optimize that image with gradient descendt so that it minimizes both the content loss (relative to the image) and the style loss (relative to the painting).
+    * Optimize that image with gradient descent so that it minimizes both the content loss (relative to the image) and the style loss (relative to the painting).
     * Each distance (content, style) can be weighted to have more or less influence on the loss function.
