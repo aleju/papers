@@ -29,6 +29,11 @@
   * BN allows higher learning rates. (Because of less danger of exploding/vanishing gradients.)
   * BN enables training with saturating nonlinearities in deep networks, e.g. sigmoid. (Because the normalization prevents them from getting stuck in saturating ranges, e.g. very high/low values for sigmoid.)
 
+
+![MNIST and neuron activations](images/Batch_Normalization__performance_and_activations.png?raw=true "MNIST and neuron activations")
+
+*BN applied to MNIST (a), and activations of a randomly selected neuron over time (b, c), where the middle line is the median activation, the top line is the 15th percentile and the bottom line is the 85th percentile.*
+
 -------------------------
 
 # Rough chapter-wise notes

@@ -37,9 +37,10 @@
     * Add up both components to get the total loss.
     * Give both components a weight to alter for more/less style matching (at the expense of content matching).
 
-Example images:
 
 ![Examples](images/A_Neural_Algorithm_for_Artistic_Style__examples.jpg?raw=true "Examples")
+
+*One example input image with different styles added to it.*
 
 -------------------------
 

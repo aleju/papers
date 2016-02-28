@@ -30,6 +30,11 @@
   * Results are especially better if each test is repeated multiple times per image (as the random sequence generation creates randomness, similar to dropout). First 5-10 repetitions seem to be most valuable, but even 100+ give some improvement.
   * An FMP-factor of `sqrt(2)` was usually used.
 
+
+![Examples](images/Fractional_Max_Pooling__examples.jpg?raw=true "Examples")
+
+*Random FMP with a factor of sqrt(2) applied five times to the same input image (results upscaled back to original size).*
+
 -------------------------
 
 # Rough chapter-wise notes

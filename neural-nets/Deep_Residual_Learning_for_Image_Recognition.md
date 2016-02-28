@@ -50,6 +50,16 @@
   * They enable well-trainable very deep architectures with up to 1000 layers and more.
   * The activations of the residual layers are low compared to plain networks. That indicates that the residual networks indeed only learn to make "good" changes and default to "if in doubt, change nothing".
 
+
+![Building blocks](images/Deep_Residual_Learning_for_Image_Recognition__building_blocks.png?raw=true "Building blocks")
+
+*Examples of basic building blocks (other architectures are possible). The paper doesn't discuss the placement of the ReLU (after add instead of after the layer).*
+
+
+![Activations](images/Deep_Residual_Learning_for_Image_Recognition__activations.png?raw=true "Activations")
+
+*Activations of layers (after batch normalization, before nonlinearity) throughout the network for plain and residual nets. Residual networks have on average lower activations.*
+
 -------------------------
 
 # Rough chapter-wise notes

@@ -55,3 +55,12 @@
   * Due to some gradient effects, `||v||` currently grows monotonically with every weight update. (Not necessarily when using optimizers that use separate learning rates per parameters.)
   * That grow effect leads the network to be more robust to different learning rates.
   * Setting a small hard limit/constraint for `||v||` can lead to better test set performance (parameter updates are larger, introducing more noise).
+
+
+![CIFAR-10 results](images/Weight_Normalization__cifar10.png?raw=true "CIFAR-10 results")
+
+*Performance of WN on CIFAR-10 compared to BN, BN-MEAN and no normalization.*
+
+![DRAW, DQN results](images/Weight_Normalization__draw_dqn.png?raw=true "DRAW, DQN results")
+
+*Performance of WN for DRAW (left) and deep reinforcement learning (right).*
