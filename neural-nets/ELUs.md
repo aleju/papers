@@ -1,10 +1,10 @@
 # Paper
 
-**Title**: Fast and Accurate Deep Networks Learning By Exponential Linear Units (ELUs)
-**Authors**: Djork-Arné Clevert, Thomas Unterthiner, Sepp Hochreiter
-**Link**: http://arxiv.org/abs/1511.07289
-**Tags**: Neural Network, activation, nonlinearity, ReLU, ELU, PReLU, LeakyReLU
-**Year**: 2015
+* **Title**: Fast and Accurate Deep Networks Learning By Exponential Linear Units (ELUs)
+* **Authors**: Djork-Arné Clevert, Thomas Unterthiner, Sepp Hochreiter
+* **Link**: http://arxiv.org/abs/1511.07289
+* **Tags**: Neural Network, activation, nonlinearity, ReLU, ELU, PReLU, LeakyReLU
+* **Year**: 2015
 
 # Summary
 

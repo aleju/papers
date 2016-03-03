@@ -1,10 +1,10 @@
 # Paper
 
-**Title**: A Neural Algorithm of Artistic Style
-**Authors**: Leon A. Gatys, Alexander S. Ecker, Matthias Bethge
-**Link**: http://arxiv.org/abs/1508.06576
-**Tags**: Neural Network, Art, VGG, Gram Matrix, Texture
-**Year**: 2015
+* **Title**: A Neural Algorithm of Artistic Style
+* **Authors**: Leon A. Gatys, Alexander S. Ecker, Matthias Bethge
+* **Link**: http://arxiv.org/abs/1508.06576
+* **Tags**: Neural Network, Art, VGG, Gram Matrix, Texture
+* **Year**: 2015
 
 # Summary
 

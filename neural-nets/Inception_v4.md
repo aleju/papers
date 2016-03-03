@@ -1,10 +1,10 @@
 # Paper
 
-**Title**: Inception-v4, Inception-ResNet and the Impact of Residual Connections on Learning
-**Authors**: Christian Szegedy, Sergey Ioffe, Vincent Vanhoucke
-**Link**: http://arxiv.org/abs/1602.07261v1
-**Tags**: Neural Network, Inception, Residual
-**Year**: 2016
+* **Title**: Inception-v4, Inception-ResNet and the Impact of Residual Connections on Learning
+* **Authors**: Christian Szegedy, Sergey Ioffe, Vincent Vanhoucke
+* **Link**: http://arxiv.org/abs/1602.07261v1
+* **Tags**: Neural Network, Inception, Residual
+* **Year**: 2016
 
 # Summary
 

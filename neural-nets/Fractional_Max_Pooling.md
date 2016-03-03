@@ -1,10 +1,10 @@
 # Paper
 
-**Title**: Fractional Max-Pooling
-**Authors**: Benjamin Graham
-**Link**: http://arxiv.org/abs/1412.6071
-**Tags**: Neural Network, Pooling
-**Year**: 2015
+* **Title**: Fractional Max-Pooling
+* **Authors**: Benjamin Graham
+* **Link**: http://arxiv.org/abs/1412.6071
+* **Tags**: Neural Network, Pooling
+* **Year**: 2015
 
 # Summary
 

@@ -1,10 +1,10 @@
 # Paper
 
-**Title**: Weight Normalization: A Simple Reparameterization to Accelerate Training of Deep Neural Networks
-**Authors**: Tim Salimans, Diederik P. Kingma
-**Link**: http://arxiv.org/abs/1602.07868
-**Tags**: Neural Network, Normalization, VAE
-**Year**: 2016
+* **Title**: Weight Normalization: A Simple Reparameterization to Accelerate Training of Deep Neural Networks
+* **Authors**: Tim Salimans, Diederik P. Kingma
+* **Link**: http://arxiv.org/abs/1602.07868
+* **Tags**: Neural Network, Normalization, VAE
+* **Year**: 2016
 
 # Summary
 

@@ -1,10 +1,10 @@
 # Paper
 
-**Title**: Generative Adversarial Networks
-**Authors**: Ian J. Goodfellow, Jean Pouget-Abadie, Mehdi Mirza, Bing Xu, David Warde-Farley, Sherjil Ozair, Aaron Courville, Yoshua Bengio
-**Link**: http://arxiv.org/abs/1406.2661
-**Tags**: Neural Network, GAN, generative models, unsupervised learning
-**Year**: 2014
+* **Title**: Generative Adversarial Networks
+* **Authors**: Ian J. Goodfellow, Jean Pouget-Abadie, Mehdi Mirza, Bing Xu, David Warde-Farley, Sherjil Ozair, Aaron Courville, Yoshua Bengio
+* **Link**: http://arxiv.org/abs/1406.2661
+* **Tags**: Neural Network, GAN, generative models, unsupervised learning
+* **Year**: 2014
 
 # Summary
 

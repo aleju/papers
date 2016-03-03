@@ -1,10 +1,10 @@
 # Paper
 
-**Title**: Deep Residual Learning for Image Recognition
-**Authors**: Kaiming He, Xiangyu Zhang, Shaoqing Ren, Jian Sun
-**Link**: http://arxiv.org/abs/1512.03385
-**Tags**: Neural Network, Residual, Deep Architectures
-**Year**: 2015
+* **Title**: Deep Residual Learning for Image Recognition
+* **Authors**: Kaiming He, Xiangyu Zhang, Shaoqing Ren, Jian Sun
+* **Link**: http://arxiv.org/abs/1512.03385
+* **Tags**: Neural Network, Residual, Deep Architectures
+* **Year**: 2015
 
 # Summary
 
