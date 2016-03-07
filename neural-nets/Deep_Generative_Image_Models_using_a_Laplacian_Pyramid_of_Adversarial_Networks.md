@@ -8,6 +8,29 @@
 
 # Summary
 
+* What
+  * The original GAN approach used one Generator (G) to generate images and one Discriminator (D) to rate these images.
+  * The laplacian pyramid GAN uses multiple pairs of G and D.
+  * It starts with an ordinary GAN that generates small images (say, 4x4).
+  * Each following pair learns to generate plausible upscalings of the image, usually by a factor of 2. (So e.g. from 4x4 to 8x8.)
+  * This scaling from coarse to fine resembles a laplacian pyramid, hence the name.
+
+* How
+  * The first pair of G and D is just like an ordinary GAN.
+  * For each pair afterwards, G recieves the output of the previous step, upscaled to the desired size. Due to the upscaling, the image will be blurry.
+  * G has to learn to generate a plausible sharpening of that blurry image.
+  * G outputs a difference image, not the full sharpened image.
+  * D recieves the upscaled/blurry image. D also recieves either the optimal difference image (for images from the training set) or G's generated difference image.
+  * D adds the difference image to the blurry image as its first step. Afterwards it applies convolutions to the image and ends in one sigmoid unit.
+  * The training procedure is just like in the ordinary GAN setting. Each upscaling pair of G and D can be trained on its own.
+  * The first G recieves a "normal" noise vector, just like in the ordinary GAN setting. Later Gs recieve noise as one plane, so each image has four channels: R, G, B, noise.
+
+* Results
+  * Images are rated as looking more realistic than the ones from ordinary GANs.
+  * The approximated log likelihood is significantly lower (improved) compared to ordinary GANs.
+  * The generated images do however still look distorted compared to real images.
+  * They also tried to add class conditional information to G and D (just a one hot vector for the desired class of the image). G and D learned successfully to adapt to that information (e.g. to only generate images that seem to show birds).
+
 
 
 ![Activations](images/Deep_Residual_Learning_for_Image_Recognition__activations.png?raw=true "Activations")
