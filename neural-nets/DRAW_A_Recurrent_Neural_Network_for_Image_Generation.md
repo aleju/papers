@@ -8,7 +8,36 @@
 
 # Summary
 
+* What
+  * DRAW = deep recurrent attentive writer
+  * DRAW is a recurrent autoencoder for (primarily) images that uses attention mechanisms.
+  * Like all autoencoders it has an encoder, a latent layer `Z` in the "middle" and a decoder.
+  * Due to the recurrence, there are actually multiple autoencoders, one for each timestep (the number of timesteps is fixed).
+  * DRAW has attention mechanisms which allow the model to decide where to look at in the input image ("glimpses") and where to write/draw to in the output image.
+  * If the attention mechanisms are skipped, the model becomes a simple recurrent autoencoder.
+  * By training the full autoencoder on a dataset and then only using the decoder, one can generate new images that look similar to the dataset images.
 
+* How
+  * General architecture
+    * The encoder-decoder-pair follows the design of variational autoencoders.
+    * The latent layer follows an n-dimensional gaussian distribution. The hyperparameters of that distribution (means, standard deviations) are derived from the output of the encoder using a linear transformation.
+    * Using a gaussian distribution enables the use of the reparameterization trick, which can be useful for backpropagation.
+    * The decoder receives a sample drawn from that gaussian distribution.
+    * While the encoder reads from the input image, the decoder writes to an image canvas (where "write" is an addition, not a replacement of the old values).
+    * The model works in a fixed number of timesteps. At each timestep the encoder performs a read operation and the decoder a write operation.
+    * Both the encoder and the decoder receive the previous output of the encoder.
+  * Loss functions
+    * The loss function of the latent layer is the KL-divergence between that layer's gaussian distribution and a prior, summed over the timesteps.
+    * The loss function of the decoder is the negative log likelihood of the image given the final canvas content under a bernoulli distribution.
+    * The total loss, which is optimized, is the expectation of the sum of both losses (latent layer loss, decoder loss).
+  * Attention
+    * 
+
+* Results
+  * Realistic looking generated images for MNIST and SVHN.
+  * Structurally OK, but overall blurry images for CIFAR-10.
+  * Results with attention are usually significantly better than without attention.
+  * Image generation without attention starts with a blurry image and progressively sharpens it.
 
 ----------
 
@@ -65,4 +94,31 @@
     * For RGB the same glimpses are applied to each channel.
 
 * 4. Experimental results
-  * 
+  * They train on binary MNIST, cluttered MNIST, SVHN and CIFAR-10.
+  * They then classfiy the images (cluttered MNIST) or generate new images (other datasets).
+  * They say that these generated images are unique (to which degree?) and that they look realistic for MNIST and SVHN.
+  * Results on CIFAR-10 are blurry.
+  * They use binary crossentropy as the loss function for binary MNIST.
+  * They use crossentropy as the loss function for SVHN and CIFAR-10 (color).
+  * They used Adam as their optimizer.
+  * 4.1 Cluttered MNIST classification
+    * They classify images of cluttered MNIST. To do that, they use an LSTM that performs N read-glimpses and then classifies via a softmax layer.
+    * Their model's error rate is significantly below a previous non-differentiable attention based model.
+    * Performing more glimpses seems to decrease the error rate further.
+  * 4.2 MNIST generation
+    * They generate binary MNIST images using only the decoder.
+    * DRAW without attention seems to perform similarly to previous models.
+    * DRAW with attention seems to perform significantly better than previous models.
+    * DRAW without attention progressively sharpens images.
+    * DRAW with attention draws lines by tracing them.
+  * 4.3 MNIST generation with two digits
+    * They created a dataset of 60x60 images, each of them containing two random 28x28 MNIST images.
+    * They then generated new images using only the decoder.
+    * DRAW learned to do that.
+    * Using attention, the model usually first drew one digit then the other.
+  * 4.4 Street view house number generation
+    * They generate SVHN images using only the decoder.
+    * Results look quite realistic.
+  * 4.5 Generating CIFAR images
+    * They generate CIFAR-10 images using only the decoder.
+    * Results follow roughly the structure of CIFAR-images, but look blurry.
