@@ -17,6 +17,12 @@
   * If the attention mechanisms are skipped, the model becomes a simple recurrent autoencoder.
   * By training the full autoencoder on a dataset and then only using the decoder, one can generate new images that look similar to the dataset images.
 
+
+![DRAW Architecture](images/DRAW_A_Recurrent_Neural_Network_for_Image_Generation__architecture.png?raw=true "DRAW Architecture")
+
+*Basic recurrent architecture of DRAW.*
+
+
 * How
   * General architecture
     * The encoder-decoder-pair follows the design of variational autoencoders.
@@ -31,13 +37,32 @@
     * The loss function of the decoder is the negative log likelihood of the image given the final canvas content under a bernoulli distribution.
     * The total loss, which is optimized, is the expectation of the sum of both losses (latent layer loss, decoder loss).
   * Attention
-    * 
+    * The selective read attention works on image patches of varying sizes. The result size is always NxN.
+    * The mechanism has the following parameters:
+        * `gx`: x-axis coordinate of the center of the patch
+        * `gy`: y-axis coordinate of the center of the patch
+        * `delta`: Strides. The higher the strides value, the larger the read image patch.
+        * `sigma`: Standard deviation. The higher the sigma value, the more blurry the extracted patch will be.
+        * `gamma`: Intensity-Multiplier. Will be used on the result.
+        * All of these parameters are generated using a linear transformation applied to the decoder's output.
+    * The mechanism places a grid of NxN gaussians on the image. The grid is centered at `(gx, gy)`. The gaussians are `delta` pixels apart from each other and have a standard deviation of `sigma`.
+    * Each gaussian is applied to the image, the center pixel is read and added to the result.
+
+
+![DRAW Attention](images/DRAW_A_Recurrent_Neural_Network_for_Image_Generation__attention.png?raw=true "DRAW Attention")
+
+*The basic attention mechanism. (gx, gy) is the read patch center. delta is the strides. On the right: Patches with different sizes/strides and standard deviations/blurriness.*
+
 
 * Results
   * Realistic looking generated images for MNIST and SVHN.
   * Structurally OK, but overall blurry images for CIFAR-10.
   * Results with attention are usually significantly better than without attention.
   * Image generation without attention starts with a blurry image and progressively sharpens it.
+
+![DRAW SVHN Results](images/DRAW_A_Recurrent_Neural_Network_for_Image_Generation__architecture.png?raw=true "DRAW SVHN Results")
+
+*Using DRAW with attention to generate new SVHN images.*
 
 ----------
 
