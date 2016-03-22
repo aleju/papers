@@ -8,4 +8,15 @@
 
 # Summary
 
+* What
+
+* How
+
+* Results
+  * The softmax layers learn reasonable distributions. E.g. neighboring colors end up with similar probabilities. Values 0 and 255 tend to have higher probabilities than others, especially for the very first pixel.
+  * In the 12-layer LSTM row model, residual and skip connections seem to have roughly the same effect on the network's results. Using both yields a tiny improvement over just using one of the techniques alone.
+  * They achieve a slightly better result on MNIST than DRAW did.
+  * Their negative log likelihood results for CIFAR-10 improve upon previous models. The diagonal BiLSTM model performs best, followed by the row LSTM model, followed by PixelCNN.
+  * Their generated images for CIFAR-10 and Imagenet capture real local spatial dependencies. The multi-scale model produces better looking results. The images do not appear blurry. Overall they still look very unreal.
+
 ![Module A](images/Inception_v4__module_a.png?raw=true "Module A")
