@@ -9,8 +9,15 @@
 # Summary
 
 * What
+  * The authors describe multiple architectures that can model the distributions of images.
+  * These networks can be used to generate new images or to complete existing ones.
+  * The networks are mostly based on RNNs.
 
 * How
+  * They define three architectures:
+    * Row LSTM: TODO
+    * Diagonal BiLSTM: TODO
+    * PixelCNN: TODO
 
 * Results
   * The softmax layers learn reasonable distributions. E.g. neighboring colors end up with similar probabilities. Values 0 and 255 tend to have higher probabilities than others, especially for the very first pixel.
