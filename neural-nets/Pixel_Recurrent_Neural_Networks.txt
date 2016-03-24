@@ -15,9 +15,22 @@
 
 * How
   * They define three architectures:
-    * Row LSTM: TODO
-    * Diagonal BiLSTM: TODO
-    * PixelCNN: TODO
+    * Row LSTM:
+      * Predicts a pixel value based on all previous pixels in the image.
+      * It applies 1D convolutions (with kernel size 3) to the current and previous rows of the image.
+      * It uses the convolution results as features to predict a pixel value.
+    * Diagonal BiLSTM:
+      * Predicts a pixel value based on all previous pixels in the image.
+      * Instead of applying convolutions in a row-wise fashion, they apply them to the diagonals towards the top left and top right of the pixel.
+      * Diagonal convolutions can be applied by padding the n-th row with `n-1` pixels from the left (diagonal towards top left) or from the right (diagonal towards the top right), then apply a 3x1 column convolution.
+    * PixelCNN:
+      * Applies convolutions to the region around a pixel to predict its values.
+      * Uses masks to zero out pixels that follow after the target pixel.
+      * They use no pooling layers.
+      * While for the LSTMs each pixel is conditioned on all previous pixels, the dependency range of the CNN is bounded.
+  * They use up to 12 LSTM layers.
+  * They use residual connections between their LSTM layers.
+  * All architectures predict pixel values as a softmax over 255 distinct values (per channel). According to the authors that leads to better results than just using one continuous output (i.e. sigmoid) per channel.
 
 * Results
   * The softmax layers learn reasonable distributions. E.g. neighboring colors end up with similar probabilities. Values 0 and 255 tend to have higher probabilities than others, especially for the very first pixel.
