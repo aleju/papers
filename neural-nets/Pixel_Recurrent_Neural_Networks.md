@@ -8,6 +8,8 @@
 
 # Summary
 
+*Note*: This paper felt rather hard to read. The summary might not have hit exactly what the authors tried to explain.
+
 * What
   * The authors describe multiple architectures that can model the distributions of images.
   * These networks can be used to generate new images or to complete existing ones.
