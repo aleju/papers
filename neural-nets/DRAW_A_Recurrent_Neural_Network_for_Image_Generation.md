@@ -60,7 +60,7 @@
   * Results with attention are usually significantly better than without attention.
   * Image generation without attention starts with a blurry image and progressively sharpens it.
 
-![DRAW SVHN Results](images/DRAW_A_Recurrent_Neural_Network_for_Image_Generation__architecture.png?raw=true "DRAW SVHN Results")
+![DRAW SVHN Results](images/DRAW_A_Recurrent_Neural_Network_for_Image_Generation__svhn.png?raw=true "DRAW SVHN Results")
 
 *Using DRAW with attention to generate new SVHN images.*
 

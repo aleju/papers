@@ -23,12 +23,12 @@
     * GMMN: Noise vector input (as in GANs), several ReLU layers into one sigmoid layer. MMD as the loss function.
     * GMMN+AE: Same as GMMN, but the sigmoid output is not an image, but instead the code that gets fed into an autoencoder's (AE) decoder. The AE is trained separately on the dataset. MMD is backpropagated through the decoder and then the GMMN. I.e. the GMMN learns to produce codes that let the decoder generate good looking images.
 
-![Formula](images/Generative_Moment_Matching_Networks__formula.jpg?raw=true "Formula")
+![Formula](images/Generative_Moment_Matching_Networks__formula.png?raw=true "Formula")
 
 *MMD formula, where `x_i` is a training set example and `y_i` a generated example.*
 
 
-![Architectures](images/Generative_Moment_Matching_Networks__architectures.jpg?raw=true "Architectures")
+![Architectures](images/Generative_Moment_Matching_Networks__architectures.png?raw=true "Architectures")
 
 *Architectures of GMMN (left) and GMMN+AE (right).*
 
@@ -40,7 +40,7 @@
   * GMMN+AE produces good looking images.
   * GMMN+AE produces smooth interpolations between images.
 
-![Interpolations](images/Generative_Moment_Matching_Networks__interpolations.jpg?raw=true "Interpolations")
+![Interpolations](images/Generative_Moment_Matching_Networks__interpolations.png?raw=true "Interpolations")
 
 *Generated TFD images and interpolations between them.*
 

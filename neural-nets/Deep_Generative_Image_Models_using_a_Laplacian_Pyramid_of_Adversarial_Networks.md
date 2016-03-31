@@ -33,7 +33,7 @@
 
 
 
-![Sampling Process](images/Deep_Generative_Image_Models_using_a_Laplacian_Pyramid_of_Adversarial_Networks__pyramid.png.png?raw=true "Sampling process")
+![Sampling Process](images/Deep_Generative_Image_Models_using_a_Laplacian_Pyramid_of_Adversarial_Networks__pyramid.png?raw=true "Sampling process")
 
 *Basic training and sampling process. The first image is generated directly from noise. Everything afterwards is de-blurring of upscaled images.*
 

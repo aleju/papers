@@ -33,7 +33,7 @@
 
 ![Example images (bedrooms)](images/Unsupervised_Representation_Learning_with_Deep_Convolutional_Generative_Adversarial_Networks__bedrooms.png?raw=true "Example images (bedrooms)")
 
-*Generated images, bedrooms. 
+*Generated images, bedrooms.*
 
 
 ![Example images (faces)](images/Unsupervised_Representation_Learning_with_Deep_Convolutional_Generative_Adversarial_Networks__faces.png?raw=true "Example images (faces)")
