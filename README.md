@@ -1,6 +1,9 @@
 # About
 
-This repository contains short summaries to some machine learning papers.
+This repository contains short summaries of some machine learning papers.
+
+* Added 2016/04/01:
+  * [Deep Networks with Stochastic Depth](neural-nets/Deep_Networks_with_Stochastic_Depth.md)
 
 * Added 2016/03/31:
   * [Deep Generative Image Models using a Laplacian Pyramid of Adversarial Networks](neural-nets/Deep_Generative_Image_Models_using_a_Laplacian_Pyramid_of_Adversarial_Networks.md)
