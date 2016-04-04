@@ -58,5 +58,28 @@
       * That vector is fed through 2 fully connected layers (unknown size, ReLU, dropout), ending with a 4096 neuron layer.
       * The confidence score and box coordinates are also adjusted by the network during that process (fine tuning).
     * RNN Language Model
-      * 
+      * Each region is translated to a sentence.
+      * The region is fed into an LSTM (after a linear layer + ReLU), followed by a special START token.
+      * The LSTM outputs multiple words as one-hot-vectors, where each vector has the length `V+1` (i.e. vocabulary size + END token).
+      * Loss function is average crossentropy between output words and target words.
+      * During test time, words are sampled until an END tag is generated.
+  * Loss function
+    * Their full loss function has five components:
+      * Binary logistic regression for the loss function of the region confidences of the localization layer.
+      * Binary logistic regression for the loss function of the region confidences of the recognition layer.
+      * Smooth L1 loss on the region predictions of the localization layer.
+      * Smooth L1 loss on the region predictions of the recognition layer.
+      * Cross-entropy at every time-step of the language model.
+    * The language model term has a weight of 1.0, all other components have a weight of 0.1.
+  * Training an optimization
+    * Initialization: CNN pretrained on ImageNet, all other weights from `N(0, 0.01)`.
+    * SGD for the CNN (lr=?, momentum=0.9)
+    * Adam everywhere else (lr=1e-6, beta1=0.9, beta2=0.99)
+    * CNN is trained after epoch 1. CNN's first four layers are not trained.
+    * Batch size is 1.
+    * Image size is 720 on the longest side.
+    * They use Torch.
+    * 3 days of training time.
+
+* (4) Experiments
 
