@@ -82,4 +82,9 @@
     * 3 days of training time.
 
 * (4) Experiments
-
+  * They use the Visual Genome Dataset (94k images, 4.1M regions with captions)
+  * Their total vocabulary size is 10,497 words. (Rare words in captions were replaced with `<UNK>`.)
+  * They throw away annotations with too many words as well as images with too few/too many regions.
+  * They merge heavily overlapping regions to single regions with multiple captions.
+  * Dense Captioning
+    * 
