@@ -87,4 +87,29 @@
   * They throw away annotations with too many words as well as images with too few/too many regions.
   * They merge heavily overlapping regions to single regions with multiple captions.
   * Dense Captioning
+    * Dense captioning task: The model receives one image and produces a set of regions, each having a caption and a confidence score.
+    * Evaluation metrics
+      * Evaluation of the output is non-trivial.
+      * They compare predicted regions with regions from the annotation that have high overlap (above a threshold).
+      * They then compare the predicted caption with the captions having similar METEOR score (above a threshold).
+      * Instead of setting one threshold for each comparison they use multiple thresholds. Then they calculate the Mean Average Precision using the various pairs of thresholds.
+    * Baseline models
+      * *TODO*
+    * Discrepancy between region and image level statistics
+      * *TODO*
+    * RPN outperforms external region proposals
+      * *TODO*
+    * Our model outperforms individual region description
+      * *TODO*
+    * Qualitative results
+      * Finds plenty of good regions and generates reasonable captions for them.
+      * Sometimes finds the same region twice.
+    * Runtime evaluation
+      * 240ms on 720x600 image with 300 region proposals.
+      * 166ms on 720x600 image with 100 region proposals.
+      * Recognition of region proposals takes up most time.
+      * Generating region proposals takes up the 2nd most time.
+      * Generating captions for regions (RNN) takes almost no time.
+  * Image Retrieval using Regions and Captions
     * 
+
