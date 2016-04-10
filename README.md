@@ -2,6 +2,10 @@
 
 This repository contains short summaries of some machine learning papers.
 
+* Added 2016/??/??:
+  * [Noisy Activation Functions](neural-nets/Noisy_Activation_Functions.md)
+  * [DenseCap: Fully Convolutional Localization Networks for Dense Captioning](neural-nets/DenseCap.md)
+
 * Added 2016/04/01:
   * [Deep Networks with Stochastic Depth](neural-nets/Deep_Networks_with_Stochastic_Depth.md)
 
