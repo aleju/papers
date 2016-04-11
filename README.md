@@ -3,6 +3,7 @@
 This repository contains short summaries of some machine learning papers.
 
 * Added 2016/??/??:
+  * [SqueezeNet: AlexNet-level accuracy with 50x fewer parameters and <0.5MB model size](neural-nets/SqueezeNet.md)
   * [Noisy Activation Functions](neural-nets/Noisy_Activation_Functions.md)
   * [DenseCap: Fully Convolutional Localization Networks for Dense Captioning](neural-nets/DenseCap.md)
 
