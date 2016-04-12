@@ -64,4 +64,15 @@
     * `L(theta, phi; xi)` is the variational lower bound. It is defined as `-KL(q(z|xi) || p(z)) + E[log p(xi|z)]`. `theta` are the parameters of p(x|z) and p(z). `phi` are the paramters of p(z|x).
     * We want to find optimal parameters for `theta` and `phi`. Usually one would use Monte Carlo methods for that, but they lead to too much variance.
   * (2.3) The SGVB estimator and AEVB algorithm
+    * This section discusses a method to estimate the lower bound and its derivatives wrt to the parameters.
+    * Instead of using the probability distribution q(z|x) (e.g. from an image to the latent variables) we use the estimator z=g(epsilon, x) where epsilon is a noise variable (e.g. from an image and some noise to the latent variables).
+    * Using Monte Carlo Methods, one can now approximate the variational lower bound: `La(theta, phi; xi) = 1/L sum log p(xi, g(epsilon, xi)) - log q(g(epsilon, xi)|xi)`
+    * The given formula is for the full lower bound, i.e. for `L = -KL(q(z|xi)||p(z)) + E[log p(xi|z)] = -ComplexitPenalty + ReconstructionError`. The KL-Divergence can usually be computed analytically, so sampling it would be wasteful. That leads to the formular `Lb = -KL(q(z|xi)||p(z)) + Sample[log p(xi|zi)] = -KL(q(z|xi)||p(z)) + 1/L sum (log p(xi|zi))`.
+    * For a dataset with N examples and a batch size of M, the lower bound can be approximated via `N/M sum L(theta, phi; xi)`.
+    * The number of required samples L can be reduced to one if the batch size is high enough (>= 100).
+    * Stochastic Gradient Descent can be used to approximate the lower bound.
+    * The lower bound approximation is reminiscent of auto-encoders, which also usually have an objective function of the form `ReconstructionError - ComplexityPenalty`, i.e. here `E[log p(xi|z)] - KLDivergence`.
+    * The basic principle of a VAE is: Take an input example xi, then generate some noise, then use g(xi, noise) to generate a sample zi of the latent variables, then take zi and convert it via p(xi|zi) back to the input, resulting in some reconstruction error.
+  * (2.4) The reparameterization trick
     * 
+
