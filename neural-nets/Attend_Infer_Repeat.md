@@ -44,4 +44,17 @@
   * Both 2D and 3D can be separated into latent variables for "where" and "what".
   * It is assumed that the prior latent variables are independent of each other.
   * (2.1) Inference
-
+    * Inference for their model is intractable, therefore they use an approximation `q(z,n|x)`, which minizes `KL(q(z,n|x)||p(z,n|x))`, i.e. KL(approximation||real) using amortized variational approximation.
+    * Challanges for them:
+      * The dimensionality of their latent variable layer is a random variable p(n) (i.e. No static size.).
+      * Strong symmetries.
+    * They implement inference via an RNN which encodes the image object by object.
+    * The encoded latent variables can be gaussians.
+    * They encode the latent layer length via n as a vector (instead of an integer). The vector has the form of n 1s followed by one 0.
+    * If the length vector is `#z` then they want to approximate `q(z,#z|x)`.
+    * That can apparently be decomposed into `<product> q(latent variable value i, #z is still 1 at i|x, previous latent variable values) * q(has length n|z,x)`.
+  * (2.2) Learning
+    * The parameters theta (`p`, latent variable -> image) and phi (`q`, image -> latent variables) are jointly optimized.
+    * Optimization happens be maximizing a lower bound `E[log(p(x,z,n) / q(z,n|x))]` called the negative free energy.
+    * (2.2.1) Parameters of the model theta
+      * 
