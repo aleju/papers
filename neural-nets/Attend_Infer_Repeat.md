@@ -57,4 +57,11 @@
     * The parameters theta (`p`, latent variable -> image) and phi (`q`, image -> latent variables) are jointly optimized.
     * Optimization happens be maximizing a lower bound `E[log(p(x,z,n) / q(z,n|x))]` called the negative free energy.
     * (2.2.1) Parameters of the model theta
-      * 
+      * Parameters theta of log(p(x,z,n)) can easily be obtained using differentiation, so long as z and n are well approximated.
+      * The differentiation of the lower bound with repsect to theta can be approximated using Monte Carlo methods.
+    * (2.2.2) Parameters of the inference network phi
+      * phi are the parameters of q, i.e. of the RNN that generates z and #z in i timesteps.
+      * At each timestep (i.e. per object) the RNN generates three kinds of information: What (object), where (it is), whether it is present (i <= n).
+      * Each of these information is represented via variables. These variables can be discrete or continuous.
+      * When differentiating w.r.t. a continuous variable one uses the reparameterization trick.
+      * When 
