@@ -63,5 +63,23 @@
       * phi are the parameters of q, i.e. of the RNN that generates z and #z in i timesteps.
       * At each timestep (i.e. per object) the RNN generates three kinds of information: What (object), where (it is), whether it is present (i <= n).
       * Each of these information is represented via variables. These variables can be discrete or continuous.
-      * When differentiating w.r.t. a continuous variable one uses the reparameterization trick.
-      * When 
+      * When differentiating w.r.t. a continuous variable they use the reparameterization trick.
+      * When differentiating w.r.t. a discrete variable they use the likelihood ratio estimator.
+
+* (3) Models and Experiments
+  * RNN is implemented via an LSTM.
+  * DAIR: The AIR model uses at every time step the image and the RNN's hidden layer to generate the next latent information (what object, where it is and whether it is present). DAIR uses that latent information to change the image at every time step and then use the difference (D) image for the next time step.
+  * (3.1) Multi-MNIST
+    * They generate a dataset of images containing multiple MNIST digits.
+    * Each image contains 0 to 2 digits.
+    * AIR is trained on the dataset.
+    * It learns without supervision a good attention scanning policy for the images (to "hit" all digits), to count the digits in the image and to use a matching number of time steps.
+    * During training, the model first learns proper reconstruction and then to do it with few time steps.
+    * (3.1.1) Strong Generalization
+      * They test the generalization capabilities of AIR.
+      * *Extrapolation task*: They generate images with 0 to 2 digits for training, then test on images with 3 digits. The model is unable to correctly count the digits (~0% accuracy).
+      * *Interpolation task*: They generate images with 0, 1 or 3 digits for training, then test on images with 2 digits. The model performs OKish (~60% accuracy).
+      * DAIR performs in both cases well (~80% for extrapolation, ~95% accuracy for interpolation).
+    * (3.1.2) Representational Power
+      * 
+
