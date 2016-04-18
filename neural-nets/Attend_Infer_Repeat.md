@@ -81,5 +81,8 @@
       * *Interpolation task*: They generate images with 0, 1 or 3 digits for training, then test on images with 2 digits. The model performs OKish (~60% accuracy).
       * DAIR performs in both cases well (~80% for extrapolation, ~95% accuracy for interpolation).
     * (3.1.2) Representational Power
-      * 
+      * They train AIR on images containing 0, 1 or 2 digits.
+      * Then they train a second network. That network takes the output of the first one and computes a) the sum of the digits and b) estimates whether they are shown in ascending order.
+      * Accuracy for both tasks is ~95%.
+      * The network reaches that accuracy significantly faster than a separately trained network.
 
