@@ -84,5 +84,11 @@
       * They train AIR on images containing 0, 1 or 2 digits.
       * Then they train a second network. That network takes the output of the first one and computes a) the sum of the digits and b) estimates whether they are shown in ascending order.
       * Accuracy for both tasks is ~95%.
-      * The network reaches that accuracy significantly faster than a separately trained network.
+      * The network reaches that accuracy significantly faster than a separately trained CNN (i.e. requires less labels / is more unsupervised).
+  * (3.2) Omniglot
+    * They train AIR on the Omniglot dataset (1.6k handwritten characters from 50 alphabets).
+    * They allow the model to use up to 4 timesteps.
+    * The model learns to reconstruct the images in timesteps that resemble strokes.
+  * (3.3) 3D Scenes
+    * 
 
