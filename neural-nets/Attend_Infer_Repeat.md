@@ -90,5 +90,9 @@
     * They allow the model to use up to 4 timesteps.
     * The model learns to reconstruct the images in timesteps that resemble strokes.
   * (3.3) 3D Scenes
-    * 
-
+    * Here, the generator p(x|z) is a 3D renderer, only q(z|x) must be approximated.
+    * The model has to learn to count the objects and to estimate per object its identity (class) and pose.
+    * They use "finite-differencing" to get gradients through the renderer and use "score function estimators" to get gradients with respect to discrete variables.
+    * They first test with a setup where the object count is always 1. The network learns to accurately recover the object parameters.
+    * A similar "normal" network has much more problems with recovering the parameters, especially rotation, because the conditional probabilities are multi-modal.
+    * In a second experiment with multiple complex objects, AIR also achieves high reconstruction accuracy.
