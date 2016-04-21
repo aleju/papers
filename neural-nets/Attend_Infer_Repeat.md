@@ -8,6 +8,19 @@
 
 # Summary
 
+* What
+
+* How
+
+* Results
+  * On a dataset of images, each containing multiple MNIST digits, AIR learns to accurately count the digits and estimate their position and scale.
+  * When AIR is trained on images of 0 to 2 digits and tested on images containing 3 digits it performs poorly.
+  * When AIR is trained on images of 0, 1 or 3 digits and tested on images containing 2 digits it performs mediocre.
+  * DAIR performs well on both takes. Likely because it learns to remove each digit from the image after it has investigated it.
+  * When AIR is trained on 0 to 2 digits and a second network is trained (separately) to work with the generated latent layer (add digits, rate whether they are shown in ascending order) that second network reaches high accuracy with few examples. That indicates usefulness for unsupervised learning.
+  * When AIR is trained on a dataset of handwritten characters from different alphabets, it learns to represent distinct strokes in its latent layer.
+  * When AIR is trained in combination with a renderer (inverse graphics), it is able to accurately recover latent parameters of rendered objects - better than supervised networks. That indicates usefulness for robots which have to interact with objects.
+
 ![Architecture](images/DenseCap__architecture.png?raw=true "Architecture.")
 
 
