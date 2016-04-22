@@ -31,17 +31,17 @@
 
 * (1) Introduction
   * Assumption: Images are made up of distinct objects. These objects have visual and physical properties.
-  * They develop a framework for efficient inference in images (i.e. get from the image to a representation of the objects, i.e. inverse graphics).
+  * They developed a framework for efficient inference in images (i.e. get from the image to a latent representation of the objects, i.e. inverse graphics).
   * Parts of the framework: High dimensional representations (e.g. object images), interpretable latent variables (e.g. for rotation) and generative processes (to combine object images with latent variables).
   * Contributions:
     * A scheme for efficient variational inference in latent spaces of variable dimensionality.
-      * Idea: Treat inference as an iterative process, implemented via an RNN that looks at one object at a time and learns an appropriate number of inference steps. (Attent-Infer-Repeat, AIR)
+      * Idea: Treat inference as an iterative process, implemented via an RNN that looks at one object at a time and learns an appropriate number of inference steps. (Attend-Infer-Repeat, AIR)
       * End-to-end training via amortized variational inference (continuous variables: gradient descent, discrete variables: black-box optimization).
     * AIR allows to train generative models that automatically learn to decompose scenes.
     * AIR allows to recover objects and their attributes from rendered 3D scenes (inverse rendering).
 
 * (2) Approach
-  * Just like in VAEs, the scene interpretation is viewed with a bayesdian approach.
+  * Just like in VAEs, the scene interpretation is treated with a bayesian approach.
   * There are latent variables `z` and images `x`.
   * Images are generated via a probability distribution `p(x|z)`.
   * This can be reversed via bayes rule to `p(x|z) = p(x)p(z|x) / p(z)` which means that `p(x|z)p(z) / p(x) = p(z|x)`.
