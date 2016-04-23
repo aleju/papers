@@ -9,15 +9,17 @@
 # Summary
 
 * What
+  * 
 
 * How
+  * 
 
 * Results
   * On a dataset of images, each containing multiple MNIST digits, AIR learns to accurately count the digits and estimate their position and scale.
   * When AIR is trained on images of 0 to 2 digits and tested on images containing 3 digits it performs poorly.
   * When AIR is trained on images of 0, 1 or 3 digits and tested on images containing 2 digits it performs mediocre.
-  * DAIR performs well on both takes. Likely because it learns to remove each digit from the image after it has investigated it.
-  * When AIR is trained on 0 to 2 digits and a second network is trained (separately) to work with the generated latent layer (add digits, rate whether they are shown in ascending order) that second network reaches high accuracy with few examples. That indicates usefulness for unsupervised learning.
+  * DAIR performs well on both tasks. Likely because it learns to remove each digit from the image after it has investigated it.
+  * When AIR is trained on 0 to 2 digits and a second network is trained (separately) to work with the generated latent layer (trained to sum the shown digits and rate whether they are shown in ascending order), then that second network reaches high accuracy with relatively few examples. That indicates usefulness for unsupervised learning.
   * When AIR is trained on a dataset of handwritten characters from different alphabets, it learns to represent distinct strokes in its latent layer.
   * When AIR is trained in combination with a renderer (inverse graphics), it is able to accurately recover latent parameters of rendered objects - better than supervised networks. That indicates usefulness for robots which have to interact with objects.
 
@@ -44,11 +46,11 @@
   * Just like in VAEs, the scene interpretation is treated with a bayesian approach.
   * There are latent variables `z` and images `x`.
   * Images are generated via a probability distribution `p(x|z)`.
-  * This can be reversed via bayes rule to `p(x|z) = p(x)p(z|x) / p(z)` which means that `p(x|z)p(z) / p(x) = p(z|x)`.
-  * The prior `p(z)` must be chosen and captures assumption about the distributions of the latent variables.
+  * This can be reversed via bayes rule to `p(x|z) = p(x)p(z|x) / p(z)`, which means that `p(x|z)p(z) / p(x) = p(z|x)`.
+  * The prior `p(z)` must be chosen and captures assumptions about the distributions of the latent variables.
   * `p(x|z)` is the likelihood and represents the model that generates images from latent variables.
   * They assume that there can be multiple objects in an image.
-  * Every object get its own latent variables.
+  * Every object gets its own latent variables.
   * A probability distribution p(x|z) then converts each object (on its own) from the latent variables to an image.
   * The number of objects follows a probability distribution `p(n)`.
   * For the prior and likelihood they assume two scenarios:
@@ -58,17 +60,18 @@
   * It is assumed that the prior latent variables are independent of each other.
   * (2.1) Inference
     * Inference for their model is intractable, therefore they use an approximation `q(z,n|x)`, which minizes `KL(q(z,n|x)||p(z,n|x))`, i.e. KL(approximation||real) using amortized variational approximation.
-    * Challanges for them:
-      * The dimensionality of their latent variable layer is a random variable p(n) (i.e. No static size.).
+    * Challenges for them:
+      * The dimensionality of their latent variable layer is a random variable p(n) (i.e. no static size.).
       * Strong symmetries.
     * They implement inference via an RNN which encodes the image object by object.
     * The encoded latent variables can be gaussians.
-    * They encode the latent layer length via n as a vector (instead of an integer). The vector has the form of n 1s followed by one 0.
+    * They encode the latent layer length `n` via a vector (instead of an integer). The vector has the form of `n` ones followed by one zero.
     * If the length vector is `#z` then they want to approximate `q(z,#z|x)`.
     * That can apparently be decomposed into `<product> q(latent variable value i, #z is still 1 at i|x, previous latent variable values) * q(has length n|z,x)`.
+    * So instead of computing `#z` once, they instead compute at every time step whether there is another object in the image, which indirectly creates a chain of ones followed by a zero (the `#z` vector).
   * (2.2) Learning
     * The parameters theta (`p`, latent variable -> image) and phi (`q`, image -> latent variables) are jointly optimized.
-    * Optimization happens be maximizing a lower bound `E[log(p(x,z,n) / q(z,n|x))]` called the negative free energy.
+    * Optimization happens by maximizing a lower bound `E[log(p(x,z,n) / q(z,n|x))]` called the negative free energy.
     * (2.2.1) Parameters of the model theta
       * Parameters theta of log(p(x,z,n)) can easily be obtained using differentiation, so long as z and n are well approximated.
       * The differentiation of the lower bound with repsect to theta can be approximated using Monte Carlo methods.
@@ -80,18 +83,20 @@
       * When differentiating w.r.t. a discrete variable they use the likelihood ratio estimator.
 
 * (3) Models and Experiments
-  * RNN is implemented via an LSTM.
-  * DAIR: The AIR model uses at every time step the image and the RNN's hidden layer to generate the next latent information (what object, where it is and whether it is present). DAIR uses that latent information to change the image at every time step and then use the difference (D) image for the next time step.
+  * The RNN is implemented via an LSTM.
+  * DAIR
+    * The "normal" AIR model uses at every time step the image and the RNN's hidden layer to generate the next latent information (what object, where it is and whether it is present).
+    * DAIR uses that latent information to change the image at every time step and then use the difference (D) image for the next time step, i.e. DAIR can remove an object from the image after it has generated latent variables for it.
   * (3.1) Multi-MNIST
     * They generate a dataset of images containing multiple MNIST digits.
     * Each image contains 0 to 2 digits.
     * AIR is trained on the dataset.
-    * It learns without supervision a good attention scanning policy for the images (to "hit" all digits), to count the digits in the image and to use a matching number of time steps.
-    * During training, the model first learns proper reconstruction and then to do it with few time steps.
+    * It learns without supervision a good attention scanning policy for the images (to "hit" all digits), to count the digits visible in the image and to use a matching number of time steps.
+    * During training, the model seems to first learn proper reconstruction of the digits and only then to do it with as few timesteps as possible.
     * (3.1.1) Strong Generalization
       * They test the generalization capabilities of AIR.
       * *Extrapolation task*: They generate images with 0 to 2 digits for training, then test on images with 3 digits. The model is unable to correctly count the digits (~0% accuracy).
-      * *Interpolation task*: They generate images with 0, 1 or 3 digits for training, then test on images with 2 digits. The model performs OKish (~60% accuracy).
+      * *Interpolation task*: They generate images with 0, 1 or 3 digits for training, then test on images with 2 digits. The model performs OK-ish (~60% accuracy).
       * DAIR performs in both cases well (~80% for extrapolation, ~95% accuracy for interpolation).
     * (3.1.2) Representational Power
       * They train AIR on images containing 0, 1 or 2 digits.
@@ -107,5 +112,5 @@
     * The model has to learn to count the objects and to estimate per object its identity (class) and pose.
     * They use "finite-differencing" to get gradients through the renderer and use "score function estimators" to get gradients with respect to discrete variables.
     * They first test with a setup where the object count is always 1. The network learns to accurately recover the object parameters.
-    * A similar "normal" network has much more problems with recovering the parameters, especially rotation, because the conditional probabilities are multi-modal.
+    * A similar "normal" network has much more problems with recovering the parameters, especially rotation, because the conditional probabilities are multi-modal. The lower bound maximization strategy seems to work better in those cases.
     * In a second experiment with multiple complex objects, AIR also achieves high reconstruction accuracy.
