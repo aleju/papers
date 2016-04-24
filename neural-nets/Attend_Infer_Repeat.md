@@ -9,10 +9,35 @@
 # Summary
 
 * What
-  * 
+  * AIR (attend, infer, repeat) is a recurrent autoencoder architecture to transform images into latent representations object by object.
+  * As an autoencoder it is unsupervised.
+  * The latent representation is generated in multiple time steps.
+  * Each time step is intended to encode information about exactly one object in the image.
+  * The information encoded for each object is (mostly) a what-where information, i.e. which class the object has and where (in 2D: translation, scaling) it is shown.
+  * AIR has a dynamic number of time step. After encoding one object the model can decide whether it has encoded all objects or whether there is another one to encode. As a result the latent layer size is not fixed.
+  * AIR uses an attention mechanism during the encoding to focus on each object.
 
 * How
-  * 
+  * At its core, AIR is a variational autoencoder.
+  * It maximizes lower bounds on the error instead of using a "classic" reconstruction error (like MSE on the euclidean distance).
+  * It has an encoder and a decoder.
+  * The model uses a recurrent architecture via an LSTM.
+  * It (ideally) encodes/decodes one object per time step.
+  * Encoder
+    * The encoder receives the image and generates latent information for one object (what object, where it is).
+    * At the second timestep it receives the image, the previous timestep's latent information and the previous timestep's hidden layer. It then generates another latent information (for another object).
+    * And so on.
+  * Decoder
+    * The decoder receives latent information from the encoder (timestep by timestep) and treats it as a what-where information when reconstructing the images.
+      * It takes the what-part and uses a "normal" decoder to generate an image that shows the object.
+      * It takes the where-part and the generated image and feeds both into a spatial transformer, which then transforms the generated image by translating or rotating it.
+  * Dynamic size
+    * AIR makes use of a dynamically sized latent layer. It is not necessarily limited to a fixed number of time steps.
+    * Implementation: Instead of just letting the encoder generate what-where information, the encoder also generates a "present" information, which is 0 or 1. If it is 1, the reccurence will continue with encoding and decoding another object. Otherwise it will stop.
+  * Attention
+    * To add an attention mechanism, AIR first uses the LSTM's hidden layer to generate "where" and "present" information per object.
+    * It stops if the "present" information is 0.
+    * Otherwise it uses the "where" information to focus on the object using a spatial transformer. The object is then encoded to the "what" information.
 
 * Results
   * On a dataset of images, each containing multiple MNIST digits, AIR learns to accurately count the digits and estimate their position and scale.
