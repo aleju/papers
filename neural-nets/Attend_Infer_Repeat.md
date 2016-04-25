@@ -3,7 +3,7 @@
 * **Title**: Attend, Infer, Repeat: Fast Scene Understanding with Generative Models
 * **Authors**: S. M. Ali Eslami, Nicolas Heess, Theophane Weber, Yuval Tassa, Koray Kavukcuoglu, Geoffrey E. Hinton
 * **Link**: http://arxiv.org/abs/1603.08575
-* **Tags**: Neural Network, VAE, attention
+* **Tags**: Neural Network, VAE, attention, recurrent, LSTM, unsupervised
 * **Year**: 2016
 
 # Summary
@@ -48,8 +48,15 @@
   * When AIR is trained on a dataset of handwritten characters from different alphabets, it learns to represent distinct strokes in its latent layer.
   * When AIR is trained in combination with a renderer (inverse graphics), it is able to accurately recover latent parameters of rendered objects - better than supervised networks. That indicates usefulness for robots which have to interact with objects.
 
-![Architecture](images/DenseCap__architecture.png?raw=true "Architecture.")
 
+![Architecture](images/Attend_Infer_Repeat__architecture.png?raw=true "Architecture.")
+
+*AIR architecture for MNIST. Left: Decoder for two objects that are each first generated (y_att) and then fed into a Spatial Transformer (y) before being combined into an image (x). Middle: , Right: Encoder with multiple time steps that generates what-where information per object and stops when the "present" information (z_pres) is 0. Right: Combination of both for MNIST with Spatial Transformer for the attention mechanism (top left).*
+
+
+![DAIR Architecture](images/Attend_Infer_Repeat__architecture_dair.png?raw=true "DAIR Architecture.")
+
+*Encoder with DAIR architecture. DAIR modifies the image after every timestep (e.g. to remove objects that were already encoded).*
 
 
 --------------------
