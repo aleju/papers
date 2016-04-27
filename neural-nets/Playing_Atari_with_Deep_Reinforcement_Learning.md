@@ -27,3 +27,17 @@
   * They use only the visible pixels as input to the network, i.e. no manual feature extraction.
 
 * (2) Background
+
+* (3) Related Work
+
+* (4) Deep Reinforcement Learning
+  * They want to connect a reinforcement learning algorithm with a deep neural network, e.g. to get rid of handcrafted features.
+  * The network is supposes to run on the raw RGB images.
+  * They use experience replay, i.e. store tuples of (pixels, chosen action, received reward) in a memory and use that during training.
+  * They use Q-learning.
+  * They use an epsilon-greedy policy.
+  * Advantages from using experience replay instead of learning "live" during game playing:
+    * Experiences can be reused many times (more efficient).
+    * Samples are less correlated.
+    * Learned parameters from one batch don't determine as much the distributions of the examples in the next batch.
+  * They save the last N experiences and sample uniformly from them during training.
