@@ -41,3 +41,15 @@
     * Samples are less correlated.
     * Learned parameters from one batch don't determine as much the distributions of the examples in the next batch.
   * They save the last N experiences and sample uniformly from them during training.
+  * (4.1) Preprocessing and Model Architecture
+    * Raw Atari images are 210x160 pixels with 128 possible colors.
+    * They downsample them to 110x84 pixels and then crop the 84x84 playing area out of them.
+    * They also convert the images to grayscale.
+    * They use the last 4 frames as input and stack them.
+    * So their network input has shape 84x84x4.
+    * They use one output neuron per possible action. So they can compute the Q-value (expected reward) of each action with one forward pass.
+    * Architecture: 84x84x4 (input) => 16 8x8 convs, stride 4, ReLU => 32 4x4 convs stride 2 ReLU => fc 256, ReLU => fc N actions, linear
+    * 4 to 18 actions/outputs (depends on the game).
+    * Aside from the outputs, the architecture is the same for all games.
+
+* (5) Experiments
