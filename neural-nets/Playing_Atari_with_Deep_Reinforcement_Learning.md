@@ -53,3 +53,16 @@
     * Aside from the outputs, the architecture is the same for all games.
 
 * (5) Experiments
+  * Games that they played: Beam Rider, Breakout, Enduro, Pong, Qbert, Seaquest, Space Invaders
+  * They use the same architecture und hyperparameters for all games.
+  * They give a reward of +1 whenever the in-game score increases and -1 whenever it decreases.
+  * They use RMSProp.
+  * Mini batch size was 32.
+  * They train for 10 million frames/examples.
+  * They initialize epsilon (in their epsilon greedy strategy) to 1.0 and decrease it linearly to 0.1 at one million frames.
+  * They let the agent decide upon an action at every 4th in-game frame (3rd in space invaders).
+  * (5.1) Training and stability
+    * They plot the average reward und Q-value per N games to evaluate the agent's training progress,
+    * The average reward increases in a noisy way.
+    * The average Q value increases smoothly.
+    * They did not experience any divergence issues during their training.
