@@ -66,3 +66,9 @@
     * The average reward increases in a noisy way.
     * The average Q value increases smoothly.
     * They did not experience any divergence issues during their training.
+  * (5.2) Visualizating the Value Function
+    * The agent learns to predict the value function accurately, even for rather long sequences (here: ~25 frames).
+  * (5.3) Main Evaluation
+    * They compare to three other methods that use hand-engineered features and/or use the pixel data combined with significant prior knownledge.
+    * They mostly outperform the other methods.
+    * They managed to beat a human player in three games. The ones where the human won seemed to require strategies that stretched over longer time frames.
