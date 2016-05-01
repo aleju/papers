@@ -8,7 +8,19 @@
 
 # Summary
 
+* What
 
+* How
+
+* Results
+  * They ran experiments on the Atari games Beam Rider, Breakout, Enduro, Pong, Qbert, Seaquest and Space Invaders.
+  * Same architecture and hyperparameters for all games.
+  * Rewards were based on score changes in the games, i.e. they used +1 (score increases) and -1 (score decreased).
+  * Optimizer: RMSProp, Batch Size: 32.
+  * Trained for 10 million examples/frames per game.
+  * They had no problems with instability and their average Q value per game increased smoothly.
+  * Their method beats all other state of the art methods.
+  * They managed to beat a human player in games that required not so much "long" term strategies (the less frames the better).
 
 ![Generated Faces](images/Generative_Adversarial_Networks__faces.jpg?raw=true "Generated Faces")
 
