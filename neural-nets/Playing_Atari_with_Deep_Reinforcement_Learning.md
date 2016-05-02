@@ -9,6 +9,9 @@
 # Summary
 
 * What
+  * They use an implementation of Q-learning (i.e. reinforcement learning) with CNNs to automatically play Atari games.
+  * The algorithm receives the raw pixels as its input and has to choose buttons to press as its output. No hand-engineered features are used. So the model "sees" the game and "uses" the controller, just like a human player would.
+  * The model achieves good results on various games, beating all previous techniques and sometimes even surpassing human players.
 
 * How
 
