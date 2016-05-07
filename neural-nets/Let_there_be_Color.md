@@ -55,3 +55,13 @@
       * It mostly operates like a normal convolutional layer on the mid-level features. However, its weight matrix is extended to also include weights for the global features (which will be added at every pixel).
       * So they use something like `fusion at pixel u,v = sigmoid(bias + weights * [global features, mid-level features at pixel u,v])` - and that with 256 different weight matrices and biases for 256 filters.
     * (3.2.5) Colorization Network
+      * The colorization network receives the 256xH/8xW/8 matrix from the fusion layer and transforms it to the 2xHxW chrominance map.
+      * It basically uses two upsampling blocks, each starting with a nearest neighbour upsampling layer, followed by 2 3x3 convs.
+      * The last layer uses a sigmoid activation.
+      * The network ends in a MSE.
+  * (3.3) Colorization with Classification
+    * To make training more effective, they train parts of the global features network via image class labels.
+    * I.e. they take the output of the 2nd fully connected layer (at the end of the global network), add one small hidden layer after it, followed by a sigmoid output layer (size equals number of class labels).
+    * They train that with cross entropy. So their global loss becomes something like `L = MSE(color accuracy) + alpha*CrossEntropy(class labels accuracy)`.
+  * (3.4) Optimization and Learning
+    * 

@@ -2,6 +2,9 @@
 
 This repository contains short summaries of some machine learning papers.
 
+* Added 2016/05/08:
+  * [Artistic Style Transfer for Videos](neural-nets/Artistic_Style_Transfer_for_Videos.md)
+
 * Added 2016/05/03:
   * [Playing Atari with Deep Reinforcement Learning](neural-nets/Playing_Atari_with_Deep_Reinforcement_Learning.md)
   * [Attend, Infer, Repeat: Fast Scene Understanding with Generative Models](neural-nets/Attend_Infer_Repeat.md)
