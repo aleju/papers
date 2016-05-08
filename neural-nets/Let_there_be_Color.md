@@ -8,10 +8,48 @@
 
 # Summary
 
-![Algorithm](images/Playing_Atari_with_Deep_Reinforcement_Learning__algorithm.png?raw=true "Algorithm")
+* What
+  * They present a model which adds color to grayscale images (e.g. to old black and white images).
+  * It works best with 224x224 images, but can handle other sizes too.
 
-*The original full algorithm, as shown in the paper.*
+* How
+  * Their model has three feature extraction components:
+    * Low level features:
+      * Receives 1xHxW images and outputs 512xH/8xW/8 matrices.
+      * Uses 6 convolutional layers (3x3, strided, ReLU) for that.
+    * Global features:
+      * Receives the low level features and converts them to 256 dimensional vectors.
+      * Uses 4 convolutional layers (3x3, strided, ReLU) and 3 fully connected layers (1024 -> 512 -> 256; ReLU) for that.
+    * Mid-level features:
+      * Receives the low level features and converts them to 256xH/8xW/8 matrices.
+      * Uses 2 convolutional layers (3x3, ReLU) for that.
+  * The global and mid-level features are then merged with a Fusion Layer.
+    * The Fusion Layer is basically an extended convolutional layer.
+    * It takes the mid-level features (256xH/8xW/8) and the global features (256) as input and outputs a matrix of shape 256xH/8xW/8.
+    * It mostly operates like a normal convolutional layer on the mid-level features. However, its weight matrix is extended to also include weights for the global features (which will be added at every pixel).
+    * So they use something like `fusion at pixel u,v = sigmoid(bias + weights * [global features, mid-level features at pixel u,v])` - and that with 256 different weight matrices and biases for 256 filters.
+  * After the Fusion Layer they use another network to create the coloring:
+    * This network receives 256xH/8xW/8 matrices (merge of global and mid-level features) and generates 2xHxW outputs (color in L\*a\*\b* color space).
+    * It uses a few convolutional layers combined with layers that do nearest neighbour upsampling.
+  * The loss for the colorization network is a MSE based on the true coloring.
+  * They train the global feature extraction also on the true class labels of the used images.
+  * Their model can handle any sized image. If the image doesn't have a size of 224x224, it must be resized to 224x224 for the gobal feature extraction. The mid-level feature extraction only uses convolutions, therefore it can work with any image size. 
 
+* Results
+  * The training set that they use is the "Places scene dataset".
+  * After cleanup the dataset contains 2.3M training images (205 different classes) and 19k validation images.
+  * Users rate images colored by their method in 92.6% of all cases as real-looking (ground truth: 97.2%).
+  * If they exclude global features from their method, they only achieve 70% real-looking images.
+  * They can also extract the global features from image A and then use them on image B. That transfers the style from A to B. But it only works well on semantically similar images.
+
+![Architecture](images/Let_there_be_Color__architecture.png?raw=true "Architecture")
+
+*Architecture of their model.*
+
+
+![Old images](images/Let_there_be_Color__old_images.png?raw=true "Old images")
+
+*Their model applied to old images.*
 
 --------------------
 
@@ -64,4 +102,42 @@
     * I.e. they take the output of the 2nd fully connected layer (at the end of the global network), add one small hidden layer after it, followed by a sigmoid output layer (size equals number of class labels).
     * They train that with cross entropy. So their global loss becomes something like `L = MSE(color accuracy) + alpha*CrossEntropy(class labels accuracy)`.
   * (3.4) Optimization and Learning
-    * 
+    * Low level feature extraction uses only convs, so they can be extracted from any image size.
+    * Global feature extraction uses fc layers, so they can only be extracted from 224x224 images.
+    * If an image has a size unequal to 224x224, it must be (1) resized to 224x224, fed through low level feature extraction, then fed through the global feature extraction and (2) separately (without resize) fed through the low level feature extraction and then fed through the mid-level feature extraction.
+    * However, they only trained on 224x224 images (for efficiency).
+    * Augmentation: 224x224 crops from 256x256 images; random horizontal flips.
+    * They use Adadelta, because they don't want to set learning rates. (Why not adagrad/adam/...?)
+
+* (4) Experimental Results and Discussion
+  * They set the alpha in their loss to `1/300`.
+  * They use the "Places scene dataset". They filter images with low color variance (including grayscale images). They end up with 2.3M training images and 19k validation images. They have 205 classes.
+  * Batch size: 128.
+  * They train for about 11 epochs.
+  * (4.1) Colorization results
+    * Good looking colorization results on the Places scene dataset.
+  * (4.2) Comparison with State of the Art
+    * Their method succeeds where other methods fail.
+    * Their method can handle very different kinds of images.
+  * (4.3) User study
+    * When rated by users, 92.6% think that their coloring is real (ground truth: 97.2%).
+    * Note: Users were told to only look briefly at the images.
+  * (4.4) Importance of Global Features
+    * Their model *without* global features only achieves 70% user rating.
+    * There are too many ambiguities on the local level.
+  * (4.5) Style Transfer through Global Features
+    * They can perform style transfer by extracting the global features of image B and using them for image A.
+  * (4.6) Colorizing the past
+    * Their model performs well on old images despite the artifacts commonly found on those.
+  * (4.7) Classification Results
+    * Their method achieves nearly as high classification accuracy as VGG (see classification loss for global features).
+  * (4.8) Comparison of Color Spaces
+    * L\*a\*b\* color space performs slightly better than RGB and YUV, so they picked that color space.
+  * (4.9) Computation Time
+    * One image is usually processed within seconds.
+    * CPU takes roughly 5x longer.
+  * (4.10) Limitations and Discussion
+    * Their approach is data driven, i.e. can only deal well with types of images that appeared in the dataset.
+    * Style transfer works only really well for semantically similar images.
+    * Style transfer cannot necessarily transfer specific colors, because the whole model only sees the grayscale version of the image.
+    * Their model tends to strongly prefer the most common color for objects (e.g. grass always green).
