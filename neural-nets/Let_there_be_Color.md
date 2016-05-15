@@ -29,7 +29,7 @@
     * It mostly operates like a normal convolutional layer on the mid-level features. However, its weight matrix is extended to also include weights for the global features (which will be added at every pixel).
     * So they use something like `fusion at pixel u,v = sigmoid(bias + weights * [global features, mid-level features at pixel u,v])` - and that with 256 different weight matrices and biases for 256 filters.
   * After the Fusion Layer they use another network to create the coloring:
-    * This network receives 256xH/8xW/8 matrices (merge of global and mid-level features) and generates 2xHxW outputs (color in L\*a\*\b* color space).
+    * This network receives 256xH/8xW/8 matrices (merge of global and mid-level features) and generates 2xHxW outputs (color in L\*a\*b\* color space).
     * It uses a few convolutional layers combined with layers that do nearest neighbour upsampling.
   * The loss for the colorization network is a MSE based on the true coloring.
   * They train the global feature extraction also on the true class labels of the used images.
@@ -62,7 +62,7 @@
     * Extracted from the whole image (e.g. time of day, indoor or outdoors, ...).
     * They use class labels of images to train those. (Not needed during test.)
   * Local features: Extracted from small patches (e.g. texture).
-  * They don't generate a full RGB image, instead they generate the chrominance map using the CIE L\*a\*b colorspace.
+  * They don't generate a full RGB image, instead they generate the chrominance map using the CIE L\*a\*b\* colorspace.
   * Components of the model:
     * Low level features network: Generated first.
     * Mid level features network: Generated based on the low level features.

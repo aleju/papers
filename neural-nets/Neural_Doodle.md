@@ -15,7 +15,7 @@
     * (2) Turn simple doodles into artwork by treating the simplified areas in the doodle as semantic classes and annotating an artwork with these same semantic classes. (E.g. "this blob should receive the style from these trees.")
 
 * How
-  * Their method is based on [Combining Markov Random Fields and Convolutional Neural Networks for Image Synthesis](neural-nets/Combining_MRFs_and_CNNs_for_Image_Synthesis.md).
+  * Their method is based on [Combining Markov Random Fields and Convolutional Neural Networks for Image Synthesis](Combining_MRFs_and_CNNs_for_Image_Synthesis.md).
   * They use the same content loss and mostly the same MRF-based style loss. (Apparently they don't use the regularization loss.)
   * They change the input of the MRF-based style loss.
     * Usually that input would only be the activations of a VGG-layer (for the synthesized image or the style source image).

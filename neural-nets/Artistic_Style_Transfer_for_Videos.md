@@ -18,7 +18,7 @@
 
 * How
   * Assume that we have a frame to stylize `x` and an image from which to extract the style `a`.
-  * The basic process is the same as in the original [Artistic Style Transfer paper](neural-nets/A_Neural_Algorithm_for_Artistic_Style.md), they just add a bit on top of that.
+  * The basic process is the same as in the original [Artistic Style Transfer paper](A_Neural_Algorithm_for_Artistic_Style.md), they just add a bit on top of that.
   * They start with a gaussian noise image `x'` and change it gradually so that a loss function gets minimized.
   * The loss function has the following components:
     * Content loss *(old, same as in the Artistic Style Transfer paper)*

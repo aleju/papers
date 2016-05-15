@@ -7,7 +7,7 @@ This repository contains short summaries of some machine learning papers.
   * [Combining Markov Random Fields and Convolutional Neural Networks for Image Synthesis](neural-nets/Combining_MRFs_and_CNNs_for_Image_Synthesis.md)
   * [Accurate Image Super-Resolution Using Very Deep Convolutional Networks](neural-nets/Accurate_Image_Super-Resolution.md)
   * [Joint Training of a Convolutional Network and a Graphical Model for Human Pose Estimation](neural-nets/Joint_Training_of_a_ConvNet_and_a_PGM_for_HPE.md)
-  * [Hierarchical Deep Reinforcement Learning: Integrating Temporal Abstraction and Intrinsic Motivation](Hierarchical_Deep_Reinforcement_Learning.md)
+  * [Hierarchical Deep Reinforcement Learning: Integrating Temporal Abstraction and Intrinsic Motivation](neural-nets/Hierarchical_Deep_Reinforcement_Learning.md)
   * [Let there be Color](neural-nets/Let_there_be_Color.md)
 
 * Added 2016/05/08:

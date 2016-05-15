@@ -12,11 +12,11 @@
   * They describe a method that applies the style of a source image to a target image.
     * Example: Let a normal photo look like a van Gogh painting.
     * Example: Let a normal car look more like a specific luxury car.
-  * Their method builds upon the well known [artistic style paper](neural-nets/A_Neural_Algorithm_for_Artistic_Style.md) and uses a new MRF prior.
+  * Their method builds upon the well known [artistic style paper](A_Neural_Algorithm_for_Artistic_Style.md) and uses a new MRF prior.
   * The prior leads to locally more plausible patterns (e.g. less artifacts).
 
 * How
-  * They reuse the content loss from the [artistic style paper](neural-nets/A_Neural_Algorithm_for_Artistic_Style.md).
+  * They reuse the content loss from the [artistic style paper](A_Neural_Algorithm_for_Artistic_Style.md).
     * The content loss was calculated by feed the source and target image through a network (here: VGG19) and then estimating the squared error of the euclidean distance between one or more hidden layer activations.
     * They use layer `relu4_2` for the distance measurement.
   * They replace the original style loss with a MRF based style loss.
