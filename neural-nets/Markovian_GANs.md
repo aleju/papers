@@ -26,12 +26,41 @@
       * MRF-based style loss: Sample `k x k` patches from VGG representations of content image and style image. For each patch from content image find the nearest neighbor (based on normalized cross correlation) from style patches. Loss is then the sum of squared errors of euclidean distances between content patches and their nearest neighbors.
     * Generation of new images is done by starting with noise and then iteratively applying changes that minimize the loss function.
   * They introduce mostly two major changes:
-    * Get rid of the costly nearest neighbor search for the MRF loss. Instead, use a discriminator-network that receives a patch and rates how real that patch looks.
+    * (a) Get rid of the costly nearest neighbor search for the MRF loss. Instead, use a discriminator-network that receives a patch and rates how real that patch looks.
       * This discriminator-network is costly to train, but that only has to be done once (per style/texture).
-    * Get rid of the slow, iterative generation of images. Instead, start with the content image (style transfer) or noise image (texture generation) and feed that through a single generator-network to create the output image (with transfered style or generated texture).
+    * (b) Get rid of the slow, iterative generation of images. Instead, start with the content image (style transfer) or noise image (texture generation) and feed that through a single generator-network to create the output image (with transfered style or generated texture).
       * This generator-network is costly to train, but that only has to be done once (per style/texture). 
-  * MDANs:
-  * MGANs:
+  * MDANs
+    * They implement change (a) to the standard architecture and call that an "MDAN" (Markovian Deconvolutional Adversarial Networks).
+    * So the architecture of the MDAN is:
+      * Input: Image (RGB pixels)
+      * Branch 1: Markovian Patch Quality Rater (aka Discriminator)
+        * Starts by feeding the image through VGG19 until layer `relu3_1`. (Note: VGG weights are fixed/not trained.)
+        * Then extracts `k x k` patches from the generated representations.
+        * Feeds each patch through a shallow ConvNet (convolution with BN then fully connected layer).
+        * Training loss is a hinge loss, i.e. max margin between classes +1 (real looking patch) and -1 (fake looking patch). (Could also take a single sigmoid output, but they argue that hinge loss isn't as likely to saturate.)
+        * This branch will be trained continuously while synthesizing a new image.
+      * Branch 2: Content Estimation/Guidance
+        * Note: This branch is only used for style transfer, i.e if using an content image and not for texture generation.
+        * Starts by feeding the currently synthesized image through VGG19 until layer `relu5_1`. (Note: VGG weights are fixed/not trained.)
+        * Also feeds the content image through VGG19 until layer `relu5_1`.
+        * Then uses a MSE loss between both representations (so similar to a MSE on RGB pixels that is often used in autoencoders).
+        * Nothing in this branch needs to trained, the loss only affects the synthesizing of the image.
+  * MGANs
+    * The MGAN is like the MDAN, but additionally implements change (b), i.e. they add a generator that takes an image and stylizes it.
+    * The generator's architecture is:
+      * Input: Image (RGB pixels) or noise (for texture synthesis)
+      * Output: Image (RGB pixels) (stylized input image or generated texture)
+      * The generator takes the image (pixels) and feeds that through VGG19 until layer `relu4_1`.
+      * Similar to the DCGAN generator, they then apply a few fractionally strided convolutions (with BN and LeakyReLUs) to that, ending in a Tanh output. (Fractionally strided convolutions increase the height/width of the images, here to compensate the VGG pooling layers.)
+      * The output after the Tanh is the output image (RGB pixels).
+    * They train the generator with pairs of `(input image, stylized image or texture)`. These pairs can be gathered by first running the MDAN alone on several images. (With significant augmentation a few dozen pairs already seem to be enough.)
+    * One of two possible loss functions can then be used:
+      * Simple standard choice: MSE on the euclidean distance between expected output pixels and generated output pixels. Can cause blurriness.
+      * Better choice: MSE on a higher VGG representation. Simply feed the generated output pixels through VGG19 until `relu4_1` and the reuse the already generated (see above) VGG-representation of the input image. This is very similar to the pixel-wise comparison, but tends to cause less blurriness.
+    * Note: For some reason the authors call their generator a VAE, but don't mention any typical VAE technique, so it's not described like one here.
+  * They use Adam to train their networks.
+  * For texture generation they use Perlin Noise instead of simple white noise. In Perlin Noise, lower frequency components dominate more than higher frequency components. White noise didn't work well with the VGG representations in the generator (activations were close to zero).
 
 * Results
 
