@@ -63,7 +63,19 @@
   * For texture generation they use Perlin Noise instead of simple white noise. In Perlin Noise, lower frequency components dominate more than higher frequency components. White noise didn't work well with the VGG representations in the generator (activations were close to zero).
 
 * Results
+  * Similar quality like previous methods, but much faster (compared to most methods).
+  * For the Markovian Patch Quality Rater (MDAN branch 1):
+    * They found that the weights of this branch can be used as initialization for other training sessions (e.g. other texture styles), leading to a decrease in required iterations/epochs.
+    * Using VGG for feature extraction seems to be crucial. Training from scratch generated in worse results.
+    * Using larger patch sizes preserves more structure of the structure of the style image/texture. Smaller patches leads to more flexibility in generated patterns.
+    * They found that using more than 3 convolutional layers or more than 64 filters per layer provided no visible benefit in quality.
 
-![Examples](images/Accurate_Image_Super-Resolution__examples.png?raw=true "Examples")
 
-*Super-resolution quality of their model (top, bottom is a competing model).*
+![Example](images/Markovian_GANs__example.png?raw=true "Example")
+
+*Result of their method, compared to other methods.*
+
+
+![Architecture](images/Markovian_GANs__architecture.png?raw=true "Architecture")
+
+*Architecture of their model.*
