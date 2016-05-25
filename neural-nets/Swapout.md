@@ -1,6 +1,6 @@
 # Paper
 
-* **Title**: Swapout: Learning an ensemble of deep architecturess
+* **Title**: Swapout: Learning an ensemble of deep architectures
 * **Authors**: Saurabh Singh, Derek Hoiem, David Forsyth
 * **Link**: http://arxiv.org/abs/1605.06465v1
 * **Tags**: Neural Network, dropout, residual, regularization
