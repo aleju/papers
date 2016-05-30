@@ -8,6 +8,14 @@
 
 # Summary
 
+* What
+  * 
+
+
+* How
+
+* Results
+
 ![Examples](images/Accurate_Image_Super-Resolution__examples.png?raw=true "Examples")
 
 *Super-resolution quality of their model (top, bottom is a competing model).*
