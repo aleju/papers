@@ -1,8 +1,8 @@
 # Paper
 
-* **Title**: Multi-Scale Convolutional Neural Networks for Time Series Classification
-* **Authors**: Zhicheng Cui, Wenlin Chen, Yixin Chen
-* **Link**: http://arxiv.org/abs/1603.06995v4
+* **Title**: Multi-Scale Context Aggregation by Dilated Convolutions
+* **Authors**: Fisher Yu, Vladlen Koltun
+* **Link**: https://arxiv.org/abs/1511.07122
 * **Tags**: Neural Network, dilated convolution, dense prediction, segmentation, VGG
 * **Year**: 2016
 
