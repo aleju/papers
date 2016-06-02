@@ -2,6 +2,16 @@
 
 This repository contains short summaries of some machine learning papers.
 
+* Added 2016/06/02:
+  * [Resnet in Resnet: Generalizing Residual Architectures](neural-nets/Resnet_in_Resnet.md)
+  * [Rank Ordered Autoencoders](neural-nets/Rank_Ordered_Autoencoders.md)
+  * [Wide Residual Networks](neural-nets/Wide_Residual_Networks.md)
+  * [Identity Mappings in Deep Residual Networks](neural-nets/Identity_Mappings_in_Deep_Residual_Networks.md)
+  * [Swapout: Learning an ensemble of deep architectures](neural-nets/Swapout.md)
+  * [Multi-Scale Context Aggregation by Dilated Convolutions](neural-nets/Multi-Scale_Context_Aggregation_by_Dilated_Convolutions.md)
+  * [Texture Synthesis Through Convolutional Neural Networks and Spectrum Constraints](neural-nets/Texture_Synthesis_Through_CNNs_and_Spectrum_Constraints.md)
+  * [Precomputed Real-Time Texture Synthesis with Markovian Generative Adversarial Networks](neural-nets/Markovian_GANs.md)
+
 * Added 2016/05/15:
   * [Semantic Style Transfer and Turning Two-Bit Doodles into Fine Artwork](neural-nets/Neural_Doodle.md)
   * [Combining Markov Random Fields and Convolutional Neural Networks for Image Synthesis](neural-nets/Combining_MRFs_and_CNNs_for_Image_Synthesis.md)
