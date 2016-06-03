@@ -21,7 +21,7 @@
     * Transient stream: The non-residual blocks write to this stream.
   * Residual and non-residual layers receive *both* streams as input, but only write to *their* stream as output.
   * Their architecture visualized:
-    ![Architecture](images/Resnet_in_Resnet__learning_architecture.png?raw=true "Architecture")
+    ![Architecture](images/Resnet_in_Resnet__architecture.png?raw=true "Architecture")
   * Because of this architecture, their model can learn the number of layers per residual block (though BN and ReLU might cause problems here?):
     ![Learning layercount](images/Resnet_in_Resnet__learning_layercount.png?raw=true "Learning layercount")
   * The easiest way to implement this should be along the lines of the following (some of the visualized convolutions can be merged):
