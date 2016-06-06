@@ -39,7 +39,7 @@
 * Results
   * Images generated based on Celeb-A dataset:
     * ![Celeb-A samples](images/Adversarially_Learned_Inference__celeba-samples.png?raw=true "Celeb-A samples")
-  * Left column per pair: Real image, right column per pair: reconstruction (`x -> z` per G2, then `z -> x` per G1)
+  * Left column per pair: Real image, right column per pair: reconstruction (`x -> z` via G2, then `z -> x` via G1)
     * ![Celeb-A reconstructions](images/Adversarially_Learned_Inference__celeba-reconstructions.png?raw=true "Celeb-A reconstructions")
   * Reconstructions of SVHN, notice how the digits often stay the same, while the font changes:
     * ![SVHN reconstructions](images/Adversarially_Learned_Inference__svhn-reconstructions.png?raw=true "SVHN reconstructions")
