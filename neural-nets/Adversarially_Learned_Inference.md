@@ -38,12 +38,11 @@
 
 * Results
   * Images generated based on Celeb-A dataset:
-    ![Celeb-A samples](images/Adversarially_Learned_Inference__celeba-samples.png?raw=true "Celeb-A samples")
+    * ![Celeb-A samples](images/Adversarially_Learned_Inference__celeba-samples.png?raw=true "Celeb-A samples")
   * Left column per pair: Real image, right column per pair: reconstruction (`x -> z` per G2, then `z -> x` per G1)
-    ![Celeb-A reconstructions](images/Adversarially_Learned_Inference__celeba-reconstructions.png?raw=true "Celeb-A reconstructions")
+    * ![Celeb-A reconstructions](images/Adversarially_Learned_Inference__celeba-reconstructions.png?raw=true "Celeb-A reconstructions")
   * Reconstructions of SVHN, notice how the digits often stay the same, while the font changes:
-    
-    ![SVHN reconstructions](images/Adversarially_Learned_Inference__svhn-reconstructions.png?raw=true "SVHN reconstructions")
+    * ![SVHN reconstructions](images/Adversarially_Learned_Inference__svhn-reconstructions.png?raw=true "SVHN reconstructions")
   * CIFAR-10 samples, still lots of errors, but some quite correct:
-    ![CIFAR10 samples](images/Adversarially_Learned_Inference__cifar10-samples.png?raw=true "CIFAR10 samples")
+    * ![CIFAR10 samples](images/Adversarially_Learned_Inference__cifar10-samples.png?raw=true "CIFAR10 samples")
 
