@@ -2,6 +2,13 @@
 
 This repository contains short summaries of some machine learning papers.
 
+* Added 2016/06/06:
+  * [FractalNet: Ultra-Deep Neural Networks without Residuals](neural-nets/FractalNet_Ultra-Deep_Networks_without_Residuals.md)
+  * [PlaNet - Photo Geolocation with Convolutional Neural Networks](neural-nets/PlaNet.md)
+  * [Adam: A Method for Stochastic Optimization](neural-nets/Adam.md)
+  * [Generating images with recurrent adversarial networks](neural-nets/Generating_Images_with_Recurrent_Adversarial_Networks.md)
+  * [Adversarially Learned Inference](neural-nets/Adversarially_Learned_Inference.md)
+
 * Added 2016/06/02:
   * [Resnet in Resnet: Generalizing Residual Architectures](neural-nets/Resnet_in_Resnet.md)
   * [Rank Ordered Autoencoders](neural-nets/Rank_Ordered_Autoencoders.md)
