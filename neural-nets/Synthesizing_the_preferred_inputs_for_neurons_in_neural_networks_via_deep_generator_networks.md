@@ -45,5 +45,4 @@
       * `a` is derived from test images and set to 3 standard diviations of the mean activation of that component.
 
 * Results
-
-![Architecture](images/Accurate_Image_Super-Resolution__architecture.png?raw=true "Architecture")
+  * ![Examples](images/Synthesizing_the_preferred_inputs_for_neurons_in_neural_networks_via_deep_generator_networks__examples.jpg?raw=true "Examples")
