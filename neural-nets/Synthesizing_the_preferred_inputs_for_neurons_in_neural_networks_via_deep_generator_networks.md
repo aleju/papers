@@ -41,6 +41,8 @@
     5. *(Same)* Backpropagate the error through DNN,
     6. *(Modified)* Change the noise *vector* according to the gradient,
     7. *(Same)* Repeat.
+  * Visualization of their architecture:
+    * ![Architecture](images/Synthesizing_the_preferred_inputs_for_neurons_in_neural_networks_via_deep_generator_networks__architecture.jpg?raw=true "Architecture")
   * Additionally they do:
     * Apply an L2 norm to the noise vector, which adds pressure to each component to take low values. They say that this improved the results.
     * Clip each component of the noise vector to a range `[0, a]`, which improved the results significantly.
@@ -49,11 +51,26 @@
       * They argue that this clipping is similar to a prior on the noise vector components. That prior reflects likely values of the layer in E that is used for the noise vector.
 
 * Results
+  * Examples of generated images:
+    * ![Examples](images/Synthesizing_the_preferred_inputs_for_neurons_in_neural_networks_via_deep_generator_networks__examples.jpg?raw=true "Examples")
   * Early vs. late layers
     * For G they have to pick a specific layer from E that G has to invert. They found that using "later" layers (e.g. the fully connected layers at the end) produced images with more reasonable overall structure than using "early" layers (e.g. first convolutional layers). Early layers led to repeating structures.
   * Datasets and architectures
     * Both G and DNN have to be trained on datasets.
     * They found that these networks can actually be trained on different datasets, the results will still look good.
     * However, they found that the architectures of DNN and E should be similar to create the best looking images (though this might also be down to depth of the tested networks).
-  * ![Examples](images/Synthesizing_the_preferred_inputs_for_neurons_in_neural_networks_via_deep_generator_networks__examples.jpg?raw=true "Examples")
+  * Verification that the prior can generate any image
+    * They tested whether the generated images really show what the DNN-neurons prefer and not what the Generator/prior prefers.
+    * To do that, they retrained DNNs on images that were both directly from the dataset as well as images that were somehow modified.
+    * Those modifications were:
+      * Treated RGB images as if they were BGR (creating images with weird colors).
+      * Copy-pasted areas in the images around (creating mosaics).
+      * Blurred the images (with gaussian blur).
+    * The DNNs were then trained to classify the "normal" images into 1000 classes and the modified images into 1000 other classes (2000 total).
+    * So at the end there were (in the same DNN) neurons reacting strongly to specific classes of unmodified images and other neurons that reacted strongly to specific classes of modified images.
+    * When generating images to maximize activations of specific neurons, the Generator is able to create both modified and unmodified images. Though it seemed to have some trouble with blurring.
+    * That shows that the generated images probably indeed show what the DNN has learned and not just what G has learned.
+  * Uncanonical images
+    * The method can sometimes generate uncanonical images (e.g. instead of a full dog just blobs of texture).
+    * They found that this seems to be mostly the case when the dataset images have uncanonical pose, i.e. are very diverse/multi-modal.
 
