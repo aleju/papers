@@ -9,7 +9,7 @@
 # Summary
 
 * What
-  * They suggest a new method to generate images that maximizes the activations of specific neurons in a trained network (that network is henceforth called "**DNN**").
+  * They suggest a new method to generate images which maximize the activation of a specific neuron in a (trained) target network (abbreviated with "**DNN**").
     * E.g. if your DNN contains a neuron that is active whenever there is a car in an image, the method should generate images containing cars.
     * Such methods can be used to investigate what exactly a network has learned.
   * There are plenty of methods like this one. They usually differ from each other by using different *natural image priors*.
@@ -68,7 +68,7 @@
       * Blurred the images (with gaussian blur).
     * The DNNs were then trained to classify the "normal" images into 1000 classes and the modified images into 1000 other classes (2000 total).
     * So at the end there were (in the same DNN) neurons reacting strongly to specific classes of unmodified images and other neurons that reacted strongly to specific classes of modified images.
-    * When generating images to maximize activations of specific neurons, the Generator is able to create both modified and unmodified images. Though it seemed to have some trouble with blurring.
+    * When generating images to maximize activations of specific neurons, the Generator was able to create both modified and unmodified images. Though it seemed to have some trouble with blurring.
     * That shows that the generated images probably indeed show what the DNN has learned and not just what G has learned.
   * Uncanonical images
     * The method can sometimes generate uncanonical images (e.g. instead of a full dog just blobs of texture).
