@@ -41,10 +41,51 @@
     * VBN is intended to reduce the dependence of each example on the other examples in the batch.
     * VBN is computationally expensive, because it requires forwarding of two minibatches.
     * They use VBN for their G.
+  * Inception Scoring
+    * They introduce a new scoring method for GAN results.
+    * Their method is based on feeding the generated images through another network, here they use Inception.
+    * For an image `x` and predicted classes `y` (softmax-output of Inception):
+      * They argue that they want `p(y|x)` to have low entropy, i.e. the model should be rather certain of seeing a class (or few classes) in the image.
+      * They argue that they want `p(y)` to have high entropy, i.e. the predicted classes (and therefore image contents) should have high diversity. (This seems like something that is quite a bit dependend on the used dataset?)
+      * They combine both measurements to the final score of `exp(KL(p(y|x) || p(y))) = exp( <sum over images> p(y|xi) * (log(p(y|xi)) - log(p(y))) )`.
+        * `p(y)` can be approximated as the mean of the softmax-outputs over many examples.
+      * Relevant python code that they use (where `part` seems to be of shape `(batch size, number of classes)`, i.e. the softmax outputs):
+        ```
+        kl = part * (np.log(part) - np.log(np.expand_dims(np.mean(part, 0), 0)))
+        kl = np.mean(np.sum(kl, 1))
+        scores.append(np.exp(kl))
+        ```
+    * They average this score over 50,000 generated images.
+  * Semi-supervised Learning
+    * For a dataset with K classes they extend D by K outputs (leading to K+1 outputs total).
+    * They then optimize two loss functions jointly:
+      * Unsupervised loss: The classic GAN loss, i.e. D has to predict the fake/real output correctly. (The other outputs seem to not influence this loss.)
+      * Supervised loss: D must correctly predict the image's class label, if it happens to be a real image and if it was annotated with a class.
+    * They note that training G with feature matching produces the best results for semi-supervised classification.
+    * They note that training G with minibatch discrimination produces significantly worse results for semi-supervised classification. (But visually the samples look better.)
+    * They note that using semi-supervised learning overall results in higher image quality than not using it. They speculate that this has to do with the class labels containing information about image statistics that are important to humans.
 
 * Results
+  * MNIST
+    * They use weight normalization and white noise in D.
+    * Samples of high visual quality when using minibatch discrimination with semi-supervised learning.
+    * Very good results in semi-supervised learning when using feature matching.
+    * Using feature matching decreases visual quality of generated images, but improves results of semi-supervised learning.
+  * CIFAR-10
+    * D: 9-layer CNN with dropout, weight normalization.
+    * G: 4-layer CNN with batch normalization (so no VBN?).
+    * Visually very good generated samples when using minibatch discrimination with semi-supervised learning. (Probably new record quality.)
+      * Note: No comparison with nearest neighbours from the dataset.
+    * When using feature matching the results are visually not as good.
+    * Again, very good results in semi-supervised learning when using feature matching.
+  * SVHN
+    * Same setup as in CIFAR-10 and similar results.
+  * ImageNet
+    * They tried to generate 128x128 images and compared to DCGAN.
+    * They improved from "total garbage" to "garbage" (they now hit some textures, but structure is still wildly off).
 
-![Examples](images/Accurate_Image_Super-Resolution__examples.png?raw=true "Examples")
 
-*Super-resolution quality of their model (top, bottom is a competing model).*
+![CIFAR-10 Examples](images/Improved_Techniques_for_Training_GANs__cifar.jpg?raw=true "CIFAR-10 Examples")
+
+*Generated CIFAR-10-like images (with minibatch discrimination and semi-supervised learning).*
 
