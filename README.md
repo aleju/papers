@@ -2,6 +2,16 @@
 
 This repository contains short summaries of some machine learning papers.
 
+* Added 2016/07/01:
+  * [Convolutional Pose Machines](neural-nets/Convolutional_Pose_Machines.md)
+  * [HyperFace: A Deep Multi-task Learning Framework for Face Detection, Landmark Localization, Pose Estimation, and Gender Recognition](neural-nets/HyperFace.md)
+  * [Face Attribute Prediction Using Off-the-Shelf CNN Features](neural-nets/Face_Attribute_Prediction_Using_Off-the-Shelf_CNN_Features.md)
+  * [CMS-RCNN: Contextual Multi-Scale Region-based CNN for Unconstrained Face Detection](neural-nets/CMS-RCNN.md)
+  * [Conditional Image Generation with PixelCNN Decoders](neural-nets/Conditional_Image_Generation_with_PixelCNN_Decoders.md)
+  * [InfoGAN: Interpretable Representation Learning by Information Maximizing Generative Adversarial Nets](neural-nets/InfoGAN.md)
+  * [Improved Techniques for Training GANs](neural-nets/Improved_Techniques_for_Training_GANs.md)
+  * [Synthesizing the preferred inputs for neurons in neural networks via deep generator networks](neural-nets/Synthesizing_the_preferred_inputs_for_neurons_in_neural_networks_via_deep_generator_networks.md)
+
 * Added 2016/06/06:
   * [FractalNet: Ultra-Deep Neural Networks without Residuals](neural-nets/FractalNet_Ultra-Deep_Networks_without_Residuals.md)
   * [PlaNet - Photo Geolocation with Convolutional Neural Networks](neural-nets/PlaNet.md)
