@@ -54,9 +54,4 @@
     * ![ImageNet](images/Conditional_Image_Generation_with_PixelCNN_Decoders__imagenet.png?raw=true "ImageNet")
   * They use a different neural network to create embeddings of human faces. Then they generate new faces based on these embeddings via PixelCNN.
     * ![Portraits](images/Conditional_Image_Generation_with_PixelCNN_Decoders__portraits.png?raw=true "Portraits")
-  * Their PixelCNN-Autoencoder generates significantly sharper images than a "normal" autoencoder.
-
-
-![Examples](images/Accurate_Image_Super-Resolution__examples.png?raw=true "Examples")
-
-*Super-resolution quality of their model (top, bottom is a competing model).*
+  * Their PixelCNN-Autoencoder generates significantly sharper (i.e. less blurry) images than a "normal" autoencoder.

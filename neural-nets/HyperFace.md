@@ -41,7 +41,7 @@
       5. Gender estimation: Male/female face. (2 outputs)
     * Each of these network contains a single fully connected layer with 512 nodes, followed by the output layer with the above mentioned number of nodes.
   * *Architecture Visualization*:
-    * ![Architecture](images/HyperFace__architecture.png?raw=true "Architecture")
+    * ![Architecture](images/HyperFace__architecture.jpg?raw=true "Architecture")
   * *Training*
     * The base model is trained once (see above).
     * The feature extraction layers and the five classification/regression networks are trained afterwards (jointly).

@@ -41,4 +41,4 @@
   * They beat existing methods on the datasets MPII, LSP and FLIC.
   * Applying a loss function after each step (instead of only once after the last step) improved their results and reduced problems related to vanishing gradients.
   * The effective receptive field size of each step had a significant influence on the results. They increased it to up to 300px (about 80% of the image size) and saw continuous improvements in accuracy.
-    * ![Receptive field size effect](images/Convolutional_Pose_Machines__rf_size.jpg.jpg?raw=true "Receptive field size effect")
+    * ![Receptive field size effect](images/Convolutional_Pose_Machines__rf_size.jpg?raw=true "Receptive field size effect")

@@ -49,12 +49,7 @@
       * They argue that they want `p(y)` to have high entropy, i.e. the predicted classes (and therefore image contents) should have high diversity. (This seems like something that is quite a bit dependend on the used dataset?)
       * They combine both measurements to the final score of `exp(KL(p(y|x) || p(y))) = exp( <sum over images> p(y|xi) * (log(p(y|xi)) - log(p(y))) )`.
         * `p(y)` can be approximated as the mean of the softmax-outputs over many examples.
-      * Relevant python code that they use (where `part` seems to be of shape `(batch size, number of classes)`, i.e. the softmax outputs):
-        ```
-        kl = part * (np.log(part) - np.log(np.expand_dims(np.mean(part, 0), 0)))
-        kl = np.mean(np.sum(kl, 1))
-        scores.append(np.exp(kl))
-        ```
+      * Relevant python code that they use (where `part` seems to be of shape `(batch size, number of classes)`, i.e. the softmax outputs): `kl = part * (np.log(part) - np.log(np.expand_dims(np.mean(part, 0), 0))); kl = np.mean(np.sum(kl, 1)); scores.append(np.exp(kl));`
     * They average this score over 50,000 generated images.
   * Semi-supervised Learning
     * For a dataset with K classes they extend D by K outputs (leading to K+1 outputs total).
