@@ -2,6 +2,11 @@
 
 This repository contains short summaries of some machine learning papers.
 
+* Added 2016/07/29:
+  * [Stacked Hourglass Networks for Human Pose Estimation](neural-nets/Stacked_Hourglass_Networks_for_Human_Pose_Estimation.md)
+  * [DeepFace: Closing the Gap to Human-Level Performance in Face Verification](neural-nets/DeepFace.md)
+  * [Character-based Neural Machine Translation](neural-nets/Character-based_Neural_Machine_Translation.md)
+
 * Added 2016/07/01:
   * [Convolutional Pose Machines](neural-nets/Convolutional_Pose_Machines.md)
   * [HyperFace: A Deep Multi-task Learning Framework for Face Detection, Landmark Localization, Pose Estimation, and Gender Recognition](neural-nets/HyperFace.md)
