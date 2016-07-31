@@ -1,6 +1,6 @@
 # Paper
 
-* **Title**: Stacked Hourgalss Networks for Human Pose Estimation
+* **Title**: Stacked Hourglass Networks for Human Pose Estimation
 * **Authors**: Alejandro Newell, Kaiyu Yang, Jia Deng
 * **Link**: https://arxiv.org/abs/1603.06937
 * **Tags**: Neural Network, pose estimation
