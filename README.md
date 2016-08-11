@@ -2,6 +2,10 @@
 
 This repository contains short summaries of some machine learning papers.
 
+* Added 2016/08/??:
+  * [Ten Years of Pedestrian Detection, What Have We Learned?](mixed/Ten_Years_of_Pedestrian_Detection_What_Have_We_Learned.md)
+  * [Instance Normalization: The Missing Ingredient for Fast Stylization](neural-nets/Instance_Normalization_The_Missing_Ingredient_for_Fast_Stylization.md)
+
 * Added 2016/07/29:
   * [Stacked Hourglass Networks for Human Pose Estimation](neural-nets/Stacked_Hourglass_Networks_for_Human_Pose_Estimation.md)
   * [DeepFace: Closing the Gap to Human-Level Performance in Face Verification](neural-nets/DeepFace.md)
