@@ -3,6 +3,7 @@
 This repository contains short summaries of some machine learning papers.
 
 * Added 2017/??/??:
+  * [Fast R-CNN](neural-nets/Fast_R-CNN.md)
   * [Rich feature hierarchies for accurate object detection and semantic segmentation](neural-nets/Rich_feature_hierarchies_for_accurate_object_detection_and_semantic_segmentation.md) (aka RCNN)
   * [Ten Years of Pedestrian Detection, What Have We Learned?](mixed/Ten_Years_of_Pedestrian_Detection_What_Have_We_Learned.md)
   * [Instance Normalization: The Missing Ingredient for Fast Stylization](neural-nets/Instance_Normalization_The_Missing_Ingredient_for_Fast_Stylization.md)
