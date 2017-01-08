@@ -15,10 +15,12 @@
 
 * How
   * They now have three components in their network:
-    * A model for feature extraction (e.g. VGG16), called the "feature extraction network" (FEN).
-    * A model to use these features and generate region proposals, called the "Region Proposal Network" (RPN).
-    * A model to use these features and region proposals to classify each regions proposal's object and readjust the bounding box, called the "classification network" (CN).
+    * A model for feature extraction (e.g. VGG16), called the "feature extraction network" (**FEN**).
+    * A model to use these features and generate region proposals, called the "Region Proposal Network" (**RPN**).
+    * A model to use these features and region proposals to classify each regions proposal's object and readjust the bounding box, called the "classification network" (**CN**).
     * (Note: Only "RPN" really pops up in the paper, the other two remain more or less unnamed. I added the two names to simplify the description.)
+    * Rough architecture outline:
+      * ![Architecture](images/Faster_R-CNN__architecture.jpg?raw=true "Architecture")
   * The basic method at test is as follows:
     1. Use FEN to convert the image to features.
     2. Apply RPN to the features to generate region proposals.
@@ -28,6 +30,8 @@
     * Basic idea:
       * Place anchor points on the image, all with the same distance to each other (regular grid).
       * Around each anchor point, extract rectangular image areas in various shapes and sizes ("anchor boxes"), e.g. thin/square/wide and small/medium/large rectangles. (More precisely: The features of these areas are extracted.)
+      * Visualization:
+        * ![Anchor Boxes](images/Faster_R-CNN__anchor_boxes.jpg?raw=true "Anchor Boxes")
       * Feed the features of these areas through a classifier and let it rate/predict the "regionness" of the rectangle in a range between 0 and 1. Values greater than 0.5 mean that the classifier thinks the rectangle might be a bounding box. (CN has to analyze that further.)
       * Feed the features of these areas through a regressor and let it optimize the region size (top left coordinate, height, width). That way you get all kinds of possible bounding box shapes, even though you only use a few base shapes.
     * Implementation:
@@ -63,6 +67,20 @@
         3. Train the pair FEN2 + CN using the region proposals from the trained RPN.
         4. Fine-tune the pair FEN2 + RPN. FEN2 is fixed, RPN takes the weights from step 2.
         5. Fine-tune the pair FEN2 + CN. FEN2 is fixed, CN takes the weights from step 3, region proposals come from RPN from step 4.
-  * 
 
 * Results
+  * Example images:
+    * ![Example images](images/Faster_R-CNN__examples.jpg?raw=true "Example images")
+  * Pascal VOC (with VGG16 as FEN)
+    * Using an RPN instead of SS (selective search) slightly improved mAP from 66.9% to 69.9%.
+    * Training RPN and CN on the same FEN (sharing FEN's weights) does not worsen the mAP, but instead improves it slightly from 68.5% to 69.9%.
+  * Using the RPN instead of SS significantly speeds up the network, from 1830ms/image (less than 0.5fps) to 198ms/image (5fps). (Both stats with VGG16. They also use ZF as the FEN, which puts them at 17fps, but mAP is lower.)
+  * Using per anchor point more scales and shapes (ratios) for the anchor boxes improves results.
+    * 1 scale, 1 ratio: 65.8% mAP (scale `128*128`, ratio 1:1) or 66.7% mAP (scale `256*256`, same ratio).
+    * 3 scales, 3 ratios: 69.9% mAP (scales `128*128`, `256*256`, `512*512`; ratios 1:1, 1:2, 2:1).
+  * Two-staged vs one-staged
+    * Instead of the two-stage system (first, generate proposals via RPN, then classify them via CN), they try a one-staged system.
+    * In the one-staged system they move a sliding window over the computed feature maps and regress at every location the bounding box sizes and classify the box.
+    * When doing this, their performance drops from 58.7% to about 54%.
+
+
