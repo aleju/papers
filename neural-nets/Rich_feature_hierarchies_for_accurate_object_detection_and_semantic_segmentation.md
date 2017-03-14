@@ -19,7 +19,7 @@
     * ![Architecture](images/Rich_feature_hierarchies_for_accurate_object_detection_and_semantic_segmentation__architecture.jpg?raw=true "Architecture")
   * Region proposals generation
     * A region proposal is a bounding box candidate that *might* contain an object.
-    * By default the generate 2000 region proposals per image.
+    * By default they generate 2000 region proposals per image.
     * They suggest "simple" (i.e. not learned) algorithms for this step (e.g. objectneess, selective search, CPMC).
     * They use selective search (makes it comparable to previous systems).
   * CNN features
@@ -29,7 +29,7 @@
     * They add `p=16` pixels to each side of every region proposal, extract the pixels and then simply resize them to 227x227 (ignoring aspect ratio, so images might end up distorted).
     * They generate one 4096d vector per image, which is less than what some previous manual feature extraction methods used. That enables faster classification, less memory usage and thus more possible classes.
   * Classification
-    * A classifier that reveices the extracted feature vectors (one per region proposal) and classifies them into a predefined set of available classes (e.g. "person", "car", "bike", "background / no object").
+    * A classifier that receives the extracted feature vectors (one per region proposal) and classifies them into a predefined set of available classes (e.g. "person", "car", "bike", "background / no object").
     * They use one SVM per available class.
     * The regions that were not classified as background might overlap (multiple bounding boxes on the same object).
       * They use greedy non-maximum suppresion to fix that problem (for each class individually).
@@ -38,7 +38,7 @@
   * Training method
     * Pre-Training of CNN
       * They use AlexNet pretrained on Imagenet (1000 classes).
-      * They replace with last fully connected layer with a randomly initialized one that leads to `C+1` classes (`C` object classes, `+1` for background).
+      * They replace the last fully connected layer with a randomly initialized one that leads to `C+1` classes (`C` object classes, `+1` for background).
     * Fine-Tuning of CNN
       * The use SGD with learning rate `0.001`.
       * Batch size is 128 (32 positive windows, 96 background windows).

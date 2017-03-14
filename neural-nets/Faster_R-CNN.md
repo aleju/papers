@@ -15,9 +15,10 @@
 
 * How
   * They now have three components in their network:
-    * A model for feature extraction (e.g. VGG16), called the "feature extraction network" (**FEN**).
+    * A model for feature extraction, called the "feature extraction network" (**FEN**). Initialized with the weights of a pretrained network (e.g. VGG16).
     * A model to use these features and generate region proposals, called the "Region Proposal Network" (**RPN**).
-    * A model to use these features and region proposals to classify each regions proposal's object and readjust the bounding box, called the "classification network" (**CN**).
+    * A model to use these features and region proposals to classify each regions proposal's object and readjust the bounding box, called the "classification network" (**CN**). Initialized with the weights of a pretrained network (e.g. VGG16).
+    * Usually, FEN will contain the convolutional layers of the pretrained model (e.g. VGG16), while CN will contain the fully connected layers.
     * (Note: Only "RPN" really pops up in the paper, the other two remain more or less unnamed. I added the two names to simplify the description.)
     * Rough architecture outline:
       * ![Architecture](images/Faster_R-CNN__architecture.jpg?raw=true "Architecture")
@@ -36,7 +37,7 @@
       * Feed the features of these areas through a regressor and let it optimize the region size (top left coordinate, height, width). That way you get all kinds of possible bounding box shapes, even though you only use a few base shapes.
     * Implementation:
       * The regular grid of anchor points naturally arises due to the downscaling of the FEN, it doesn't have to be implemented explicitly.
-      * The extraction of anchor boxes and classification + regression can efficiently be implemented using convolutions.
+      * The extraction of anchor boxes and classification + regression can be efficiently implemented using convolutions.
         * They first apply a 3x3 convolution on the feature maps. Note that the convolution covers a large image area due to the downscaling.
           * Not so clear, but sounds like they use 256 filters/kernels for that convolution.
         * Then they apply some 1x1 convolutions for the classification and regression.
