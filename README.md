@@ -2,7 +2,8 @@
 
 This repository contains short summaries of some machine learning papers.
 
-* Added 2017/??/??:
+* Added 2017/03/14:
+  * [R-FCN: Object Detection via Region-based Fully Convolutional Networks](neural-nets/R-FCN.md)
   * [Faster R-CNN](neural-nets/Faster_R-CNN.md)
   * [Fast R-CNN](neural-nets/Fast_R-CNN.md)
   * [Rich feature hierarchies for accurate object detection and semantic segmentation](neural-nets/Rich_feature_hierarchies_for_accurate_object_detection_and_semantic_segmentation.md) (aka R-CNN)
