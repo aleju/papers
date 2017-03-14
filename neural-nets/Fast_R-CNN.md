@@ -6,6 +6,8 @@
 * **Tags**: Neural Network, RCNN, VGG, AlexNet, selective search
 * **Year**: 2015
 
+# Summary
+
 * What
   * The original R-CNN had three major disadvantages:
     1. Two-staged training pipeline: Instead of only training a CNN, one had to train first a CNN and then multiple SVMs.
@@ -79,6 +81,7 @@
     * mAP improves from 66.0% to 66.6% (66.9% without SVD).
     * Per class accuracy results:
       * Fast_R-CNN__pvoc2012.jpg
+      * ![VOC2012 results](images/Fast_R-CNN__pvoc2012.jpg?raw=true "VOC2012 results")
   * Fixing the weights of VGG16's convolutional layers and only fine-tuning the fully connected layers (those are applied to each region proposal), decreases the accuracy to 61.4%.
     * This decrease in accuracy is most significant for the later convolutional layers, but marginal for the first layers.
     * Therefor they only train the convolutional layers starting with `conv3_1` (9 out of 13 layers), which speeds up training.

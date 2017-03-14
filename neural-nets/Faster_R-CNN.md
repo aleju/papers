@@ -6,6 +6,8 @@
 * **Tags**: Neural Network, RCNN
 * **Year**: 2015
 
+# Summary
+
 * What
   * R-CNN and its successor Fast R-CNN both rely on a "classical" method to find region proposals in images (i.e. "Which regions of the image look like they *might* be objects?").
   * That classical method is selective search.

@@ -24,7 +24,7 @@
       * ![Batch Normalization Equations](images/Instance_Normalization_The_Missing_Ingredient_for_Fast_Stylization__batch_normalization.jpg?raw=true "Batch Normalization Equations")
     * Instance Normalization
       * ![Instance Normalization Equations](images/Instance_Normalization_The_Missing_Ingredient_for_Fast_Stylization__instance_normalization.jpg?raw=true "Instance Normalization Equations")
-  * They apply instance normalization and test time too (identically).
+  * They apply instance normalization at test time too (identically).
 
 * Results
   * Same image quality as iterative approach (at a fraction of the runtime).
