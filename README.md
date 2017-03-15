@@ -3,6 +3,7 @@
 This repository contains short summaries of some machine learning papers.
 
 * Added 2017/??/??:
+  * [You Only Look Once: Unified, Real-Time Object Detection](neural-nets/YOLO.md) (aka YOLO)
   * [PVANET: Deep but Lightweight Neural Networks for Real-time Object Detection](neural-nets/PVANET.md)
 
 * Added 2017/03/14:
