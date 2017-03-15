@@ -2,6 +2,9 @@
 
 This repository contains short summaries of some machine learning papers.
 
+* Added 2017/??/??:
+  * [PVANET: Deep but Lightweight Neural Networks for Real-time Object Detection](neural-nets/PVANET.md)
+
 * Added 2017/03/14:
   * [R-FCN: Object Detection via Region-based Fully Convolutional Networks](neural-nets/R-FCN.md)
   * [Faster R-CNN](neural-nets/Faster_R-CNN.md)
