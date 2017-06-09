@@ -2,6 +2,9 @@
 
 This repository contains short summaries of some machine learning papers.
 
+* Added 2017/??/??:
+  * [Wasserstein GAN](neural-nets/WGAN.md) (aka WGAN)
+
 * Added 2017/03/15:
   * [YOLO9000: Better, Faster, Stronger](neural-nets/YOLO9000.md) (aka YOLOv2)
   * [You Only Look Once: Unified, Real-Time Object Detection](neural-nets/YOLO.md) (aka YOLO)
