@@ -6,6 +6,10 @@
 * **Tags**: Neural Network, Normalization, ELU
 * **Year**: 2017
 
+# See also
+
+* [paper's github repository](https://github.com/bioinf-jku/SNNs)
+
 # Summary
 
 * What
