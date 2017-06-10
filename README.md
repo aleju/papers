@@ -3,6 +3,7 @@
 This repository contains short summaries of some machine learning papers.
 
 * Added 2017/??/??:
+  * [StackGAN: Text to Photo-realistic Image Synthesis with Stacked Generative Adversarial Networks]
   * [Self-Normalizing Neural Networks](neural-nets/Self-Normalizing_Neural_Networks.md)
   * [Wasserstein GAN](neural-nets/WGAN.md) (aka WGAN)
 
