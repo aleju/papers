@@ -1,10 +1,10 @@
 # Paper
 
-* **Title**: YOLO9000: Better, Faster, Stronger
-* **Authors**: Joseph Redmon, Ali Farhadi
-* **Link**: https://arxiv.org/abs/1612.08242
-* **Tags**: Neural Network, RCNN
-* **Year**: 2016
+* **Title**: BEGAN: Boundary Equilibrium Generative Adversarial Networks
+* **Authors**: David Berthelot, Thomas Schumm, Luke Metz
+* **Link**: https://arxiv.org/abs/1703.10717
+* **Tags**: Neural Network, GAN
+* **Year**: 2017
 
 # See also
 
