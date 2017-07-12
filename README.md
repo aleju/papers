@@ -2,6 +2,13 @@
 
 This repository contains short summaries of some machine learning papers.
 
+* Added 2017/06/11:
+  * [On the Effects of Batch and Weight Normalization in Generative Adversarial Networks](neural-nets/On_The_Effects_of_BN_and_WN_in_GANs.md)
+  * [BEGAN](neural-nets/BEGAN.md)
+  * [StackGAN: Text to Photo-realistic Image Synthesis with Stacked Generative Adversarial Networks](neural-nets/StackGAN.md)
+  * [Self-Normalizing Neural Networks](neural-nets/Self-Normalizing_Neural_Networks.md)
+  * [Wasserstein GAN](neural-nets/WGAN.md) (aka WGAN)
+
 * Added 2017/03/15:
   * [YOLO9000: Better, Faster, Stronger](neural-nets/YOLO9000.md) (aka YOLOv2)
   * [You Only Look Once: Unified, Real-Time Object Detection](neural-nets/YOLO.md) (aka YOLO)
