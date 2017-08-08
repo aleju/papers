@@ -2,6 +2,9 @@
 
 This repository contains short summaries of some machine learning papers.
 
+* Added 2017/08/08:
+  * [Multi-view Face Detection Using Deep Convolutional Neural Networks](neural-nets/Multi-view_Face_Detection_Using_Deep_Convolutional_Neural_Networks.md) (aka DDFD)
+
 * Added 2017/06/11:
   * [On the Effects of Batch and Weight Normalization in Generative Adversarial Networks](neural-nets/On_The_Effects_of_BN_and_WN_in_GANs.md)
   * [BEGAN](neural-nets/BEGAN.md)
