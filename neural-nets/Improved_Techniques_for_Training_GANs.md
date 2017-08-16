@@ -31,10 +31,10 @@
     * I.e. the cost is `distance(current parameters, average of parameters over the last t batches)`.
     * They argue that this can help the network to find equilibria that normal gradient descent would not find.
   * One-sided label smoothing
-    * Usually one would use the labels 0 (image is real) and 1 (image is fake).
+    * Usually one would use the labels 0 (image is fake) and 1 (image is real).
     * Using smoother labels (0.1 and 0.9) seems to make networks more resistent to adversarial examples.
-    * So they smooth the labels of fake images (apparently to 0.9?).
-    * Smoothing the labels of real images would lead to (mathematical) problems in some cases, so they keep these at 0.
+    * So they smooth the labels of real images (apparently to 0.9?).
+    * Smoothing the labels of fake images would lead to (mathematical) problems in some cases, so they keep these at 0.
   * Virtual Batch Normalization (VBN)
     * Usually BN normalizes each example with respect to the other examples in the same batch.
     * They instead normalize each example with respect to the examples in a reference batch, which was picked once at the start of the training.
