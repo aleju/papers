@@ -3,6 +3,7 @@
 This repository contains short summaries of some machine learning papers.
 
 * Added ???:
+  * [MobileNets](neural-nets/MobileNets.md)
   * [Mask R-CNN](neural-nets/Mask_R-CNN.md)
 
 * Added 2017/08/08:
