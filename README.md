@@ -2,7 +2,8 @@
 
 This repository contains short summaries of some machine learning papers.
 
-* Added ???:
+* Added 2017/09/24:
+  * [Feature Pyramid Networks for Object Detection](neural-nets/Feature_Pyramid_Networks_for_Object_Detection.md)
   * [SSD: Single Shot MultiBox Detector](neural-nets/SSD.md)
   * [MobileNets: Efficient Convolutional Neural Networks for Mobile Vision Applications](neural-nets/MobileNets.md)
   * [Mask R-CNN](neural-nets/Mask_R-CNN.md)
