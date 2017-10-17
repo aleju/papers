@@ -2,6 +2,9 @@
 
 This repository contains short summaries of some machine learning papers.
 
+* Added 2017/10/??:
+  * [Dilated Residual Networks](neural-nets/Dilated_Residual_Networks.md)
+
 * Added 2017/09/24:
   * [Feature Pyramid Networks for Object Detection](neural-nets/Feature_Pyramid_Networks_for_Object_Detection.md)
   * [SSD: Single Shot MultiBox Detector](neural-nets/SSD.md)
