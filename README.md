@@ -3,6 +3,7 @@
 This repository contains short summaries of some machine learning papers.
 
 * Added 2017/10/??:
+  * [Dilated Recurrent Neural Networks](neural-nets/Dilated_Recurrent_Neural_Networks.md)
   * [Detect to Track and Track to Detect](neural-nets/Detect_to_Track_and_Track_to_Detect.md)
   * [Dilated Residual Networks](neural-nets/Dilated_Residual_Networks.md)
 
