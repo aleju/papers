@@ -3,6 +3,7 @@
 This repository contains short summaries of some machine learning papers.
 
 * Added 2017/10/??:
+  * [Rainbow: Combining Improvements in Deep Reinforcement Learning](neural-nets/Rainbow.md)
   * [Learning to Navigate in Complex Environments](neural-nets/Learning_to_Navigate_in_Complex_Environments.md)
   * [Unsupervised Image-to-Image Translation Networks](neural-nets/Unsupervised_Image-to-Image_Translation_Networks.md)
   * [Dilated Recurrent Neural Networks](neural-nets/Dilated_Recurrent_Neural_Networks.md)
