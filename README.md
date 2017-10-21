@@ -4,7 +4,7 @@ This repository contains short summaries of some machine learning papers.
 
 * Added 2017/10/21:
   * [Snapshot Ensembles: Train 1, get M for free](neural-nets/Snapshot_Ensembles.md)
-  * [Image Crowd Counting Using Convolutional Neural Network and Markov Random Field](neural-nets/Image_Crowd_Counting_Using_Convolutional_Neural_Network_and_Markov_Random_Field.md)
+  * [Image Crowd Counting Using Convolutional Neural Network and Markov Random Field](neural-nets/Image_Crowd_Counting_using_CNN_and_MRF.md)
   * [Rainbow: Combining Improvements in Deep Reinforcement Learning](neural-nets/Rainbow.md)
   * [Learning to Navigate in Complex Environments](neural-nets/Learning_to_Navigate_in_Complex_Environments.md)
   * [Unsupervised Image-to-Image Translation Networks](neural-nets/Unsupervised_Image-to-Image_Translation_Networks.md)
