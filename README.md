@@ -2,6 +2,9 @@
 
 This repository contains short summaries of some machine learning papers.
 
+* Added 2017/10/??:
+  * [End to End Learning for Self-Driving Cars](neural-nets/End_to_End_Learning_for_Self-Driving_Cars.md)
+
 * Added 2017/10/21:
   * [Snapshot Ensembles: Train 1, get M for free](neural-nets/Snapshot_Ensembles.md)
   * [Image Crowd Counting Using Convolutional Neural Network and Markov Random Field](neural-nets/Image_Crowd_Counting_using_CNN_and_MRF.md)
