@@ -3,6 +3,7 @@
 This repository contains short summaries of some machine learning papers.
 
 * Added 2017/10/??:
+  * [Virtual to Real Reinforcement Learning for Autonomous Driving](neural-nets/Virtual_to_RL_for_AD.md)
   * [End to End Learning for Self-Driving Cars](neural-nets/End_to_End_Learning_for_Self-Driving_Cars.md)
 
 * Added 2017/10/21:
