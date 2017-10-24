@@ -58,7 +58,7 @@
   * Visualization of predicted depth vs real depth:
     * ![depth prediction results](images/Fast_Scene_Understanding_for_Autonomous_Driving/depth_prediction_results.jpg?raw=true "depth prediction results")
   * Example results:
-    * ![example results](images/Fast_Scene_Understanding_for_Autonomous_Driving/examples_results.jpg?raw=true "examples results")
+    * ![example results](images/Fast_Scene_Understanding_for_Autonomous_Driving/example_results.jpg?raw=true "example results")
   * They reach 21fps (that should be around 3x or so faster than Mask R-CNN) and 1.2GB memory footprint.
   * Training all branches jointly in one network (as described above) vs. training them completely separately (fully disjoint networks) improves accuracy by a bit.
 
