@@ -2,7 +2,7 @@
 
 This repository contains short summaries of some machine learning papers.
 
-* Added 2017/10/??:
+* Added 2017/10/24:
   * [Systematic Testing of Convolutional Neural Networks for Autonomous Driving](neural-nets/Systematic_Testing_of_CNNs_for_Autonomous_Driving.md)
   * [Fast Scene Understanding for Autonomous Driving](neural-nets/Fast_Scene_Understanding_for_Autonomous_Driving.md)
   * [Arguing Machines: Perception-Control System Redundancy and Edge Case Discovery in Real-World Autonomous Driving](neural-nets/Arguing_Machines.md)
