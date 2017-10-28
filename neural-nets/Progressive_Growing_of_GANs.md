@@ -11,6 +11,15 @@
 * [Video](https://www.youtube.com/watch?v=XOxxPcy5Gr4)
   * You have to pause the video on the CelebA images to see the generated artifacts/errors. The motion makes it much harder to see these.
 
+# Tiny Summary
+
+They suggest a new method to train GANs.
+They start training them at low resolution (4x4), wait until "convergence", then add more convolutions to the existing model to generate and discriminate higher resolutions.
+Each new block of convolutions is slowly blended in, instead of being added from one batch to the next.
+Combined with two new normalization techniques, they get good-looking images at up to `1024x1024` on their new CelebA-HQ dataset (CelebA in high resolution).
+They also suggest a new scoring method based on the approximated Wasserstein distance between real and generated image patches.
+According to that score, their progressive training method improves results significantly.
+
 # Summary
 
 * What
