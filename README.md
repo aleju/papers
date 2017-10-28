@@ -2,6 +2,9 @@
 
 This repository contains short summaries of some machine learning papers.
 
+## Added 2017/10/28:
+  * ****`GAN`**** [Progressive Growing of GANs for Improved Quality, Stability, and Variation](neural-nets/Progressive_Growing_of_GANs.md)
+
 ## Added 2017/10/24:
   * ****`SELF-DRIVING CARS`**** [Systematic Testing of Convolutional Neural Networks for Autonomous Driving](neural-nets/Systematic_Testing_of_CNNs_for_Autonomous_Driving.md)
   * ****`SELF-DRIVING CARS`**** ****`SEGMENTATION`**** [Fast Scene Understanding for Autonomous Driving](neural-nets/Fast_Scene_Understanding_for_Autonomous_Driving.md)
