@@ -2,7 +2,7 @@
 
 * **Title**: Progressive Growing of GANs for Improved Quality, Stability, and Variation
 * **Authors**: Tero Karras, Timo Aila, Samuli Laine, Jaakko Lehtinen
-* **Link**: http://research.nvidia.com/sites/default/files/pubs/2017-10_Progressive-Growing-of//karras2017gan-paper.pdf
+* **Link**: http://research.nvidia.com/sites/default/files/pubs/2017-10_Progressive-Growing-of/karras2017gan-paper.pdf
 * **Tags**: Neural Network, GAN
 * **Year**: 2017
 
