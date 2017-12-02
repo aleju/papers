@@ -2,6 +2,9 @@
 
 This repository contains short summaries of some machine learning papers.
 
+## Added 2017/12/??:
+  * ****`SELF-DRIVING CARS`**** [Computer Vision for Autonomous Vehicles: Problems, Datasets and State-of-the-Art](mixed/Computer_Vision_for_Autonomous_Vehicles_Overview.md)
+
 ## Added 2017/10/28:
   * ****`GAN`**** [Progressive Growing of GANs for Improved Quality, Stability, and Variation](neural-nets/Progressive_Growing_of_GANs.md)
 
