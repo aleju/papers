@@ -3,6 +3,7 @@
 This repository contains short summaries of some machine learning papers.
 
 ## Added 2017/12/??:
+  * ****`GAN`**** ****`SELF-DRIVING CARS`**** [High-Resolution Image Synthesis and Semantic Manipulation with Conditional GANs](neural-nets/High_Resolution_Image_Synthesis_with_Conditional_GANs.md)
   * ****`SELF-DRIVING CARS`**** [Computer Vision for Autonomous Vehicles: Problems, Datasets and State-of-the-Art](mixed/Computer_Vision_for_Autonomous_Vehicles_Overview.md)
 
 ## Added 2017/10/28:
