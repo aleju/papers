@@ -66,7 +66,7 @@
       * This effectively creates one feature vector per object instance (upscaled so that it cover's the object instance's area in the original image). The feature vector contains information about the object instance's appearance.
       * They set each feature vector to have three components (i.e. `E`'s output has three channels).
       * Visualization:
-        * ![feature encoder network](images/High_Resolution_Image_Synthesis_with_Conditional_GANs/feature_encoder_network.jpg?raw=true "feature encoder network")
+        * ![feature encoder network](images/High_Resolution_Image_Synthesis_with_Conditional_GANs/feature_encoder.jpg?raw=true "feature encoder network")
     * Step 3:
       * Now train the generator as before, but additionally to the semantic segmentation maps it gets the pooled feature maps as inputs.
       * As mentioned, `E` is trained in parallel.
