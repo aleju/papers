@@ -2,6 +2,9 @@
 
 This repository contains short summaries of some machine learning papers.
 
+## Added 2017/12/13:
+  * ****`FACE RECOGNITION`**** ****`FACES`**** [Neural Aggregation Network for Video Face Recognition](neural-nets/NAN_for_Video_Face_Recognition.md)
+
 ## Added 2017/12/03:
   * [Critical Learning Periods in Deep Neural Networks](neural-nets/Critical_Learning_Periods_in_Deep_Neural_Networks.md)
   * ****`GAN`**** ****`SELF-DRIVING CARS`**** [High-Resolution Image Synthesis and Semantic Manipulation with Conditional GANs](neural-nets/High_Resolution_Image_Synthesis_with_Conditional_GANs.md)
