@@ -2,18 +2,18 @@
 
 * **Title**: Neural Aggregation Network for Video Face Recognition
 * **Authors**: Jiaolong Yang, Peiran Ren, Dongqing Zhang, Dong Chen, Fang Wen, Hongdong Li, Gang Hua
-* **Link**: https://arxiv.org/pdf/1603.05474
+* **Link**: https://arxiv.org/abs/1603.05474
 * **Tags**: Neural Network, Face Recognition
 * **Year**: 2016
 
 # Summary
 
-* **What:**
-  * They suggest a method to get cumulative/aggregated embedding from a sequence of embeddings (i.e get a single face embedding vector from a video)
+* **What**
+  * They suggest a method to get cumulative/aggregated embedding from a sequence of embeddings (i.e get a single face embedding vector from a video).
 
 ![Pipeline](images/NAN_for_VideoFaceRecognition/NAN_pipeline.png?raw=true "Pipeline")
 
-* **How:**
+* **How**
   * Use attention mechanism to weight embeddings in a sequence.
   * They suggest two options:
   	1. Single attention block – Universal face feature quality measurement.
@@ -39,6 +39,6 @@
   
     ![Face quality](images/NAN_for_VideoFaceRecognition/NAN_face_quality.png?raw=true "Face quality")
   
-* **Results:**
+* **Results**
   * Shows better results than combining a single embedding by taking mean, median, l2/cos closest, etc.
   * Shows state-of-the-art performance on YouTubeFaces and IJB-A datasets.
