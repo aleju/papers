@@ -2,6 +2,9 @@
 
 This repository contains short summaries of some machine learning papers.
 
+## Added 2018/03/06:
+  * ****`LOSS FUNCTIONS`**** ****`RECOGNITION`**** [Working hard to know your neighbor’s margins: Local descriptor learning loss](neural-nets/HardNet.md)
+
 ## Added 2017/12/13:
   * ****`FACE RECOGNITION`**** ****`FACES`**** [Neural Aggregation Network for Video Face Recognition](neural-nets/NAN_for_Video_Face_Recognition.md) (thanks, [alexobednikov](https://github.com/alexobednikov))
 
