@@ -2,6 +2,10 @@
 
 This repository contains short summaries of some machine learning papers.
 
+
+## Added 2018/03/08:
+  * ****`ARCHITECTURES`**** ****`ATTENTION`**** [Spatial Transformer Networks](neural-nets/STN.md)
+
 ## Added 2018/03/06:
   * ****`LOSS FUNCTIONS`**** ****`RECOGNITION`**** [Working hard to know your neighbor’s margins: Local descriptor learning loss](neural-nets/HardNet.md) (thanks, [alexobednikov](https://github.com/alexobednikov))
 
