@@ -3,6 +3,7 @@
 This repository contains short summaries of some machine learning papers.
 
 ## Added ???
+  * ****`NORMALIZATION`**** ****`ECCV 2018`**** [Group Normalization](neural-nets/Group_Normalization.md)
   * ****`ARCHITECTURES`**** ****`ATTENTION`**** ****`ECCV 2018`**** [Convolutional Networks with Adaptive Inference Graphs](neural-nets/Convolutional_Networks_with_Adaptive_Inference_Graphs.md)
 
 
