@@ -3,6 +3,7 @@
 This repository contains short summaries of some machine learning papers.
 
 ## Added ???
+  * ****`OBJECT DETECTION`**** ****`ECCV 2018`**** [Acquisition of Localization Confidence for Accurate Object Detection](neural-nets/Acquisition_of_Localization_Confidence_for_Accurate_OD.md)
   * ****`OBJECT DETECTION`**** ****`ECCV 2018`**** [CornerNet: Detecting Objects as Paired Keypoints](neural-nets/CornerNet.md)
   * ****`NORMALIZATION`**** ****`ECCV 2018`**** [Group Normalization](neural-nets/Group_Normalization.md)
   * ****`ARCHITECTURES`**** ****`ATTENTION`**** ****`ECCV 2018`**** [Convolutional Networks with Adaptive Inference Graphs](neural-nets/Convolutional_Networks_with_Adaptive_Inference_Graphs.md)
