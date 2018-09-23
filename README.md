@@ -3,6 +3,7 @@
 This repository contains short summaries of some machine learning papers.
 
 ## Added ???
+  * ****`UNCERTAINTY`**** ****`ECCV 2018`**** [Towards Realistic Predictors](neural-nets/Towards_Realistic_Predictors.md)
   * ****`OBJECT DETECTION`**** ****`ECCV 2018`**** [Acquisition of Localization Confidence for Accurate Object Detection](neural-nets/Acquisition_of_Localization_Confidence_for_Accurate_OD.md)
   * ****`OBJECT DETECTION`**** ****`ECCV 2018`**** [CornerNet: Detecting Objects as Paired Keypoints](neural-nets/CornerNet.md)
   * ****`NORMALIZATION`**** ****`ECCV 2018`**** [Group Normalization](neural-nets/Group_Normalization.md)
