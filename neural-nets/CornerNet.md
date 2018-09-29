@@ -3,7 +3,7 @@
 * **Title**: CornerNet: Detecting Objects as Paired Keypoints
 * **Authors**: Hei Law, Jia Deng
 * **Link**: [http://openaccess.thecvf.com/content_ECCV_2018/papers/Hei_Law_CornerNet_Detecting_Objects_ECCV_2018_paper.pdf](http://openaccess.thecvf.com/content_ECCV_2018/papers/Hei_Law_CornerNet_Detecting_Objects_ECCV_2018_paper.pdf)
-* **Tags**: Neural Network, Object Detection
+* **Tags**: Neural Network, Object Detection, ECCV 2018
 * **Year**: 2018
 
 # Summary

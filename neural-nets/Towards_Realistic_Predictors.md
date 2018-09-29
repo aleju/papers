@@ -3,7 +3,7 @@
 * **Title**: Towards Realistic Predictors
 * **Authors**: Pei Wang, Nuno Vasconcelos
 * **Link**: [http://openaccess.thecvf.com/content_ECCV_2018/papers/Pei_Wang_Towards_Realistic_Predictors_ECCV_2018_paper.pdf](http://openaccess.thecvf.com/content_ECCV_2018/papers/Pei_Wang_Towards_Realistic_Predictors_ECCV_2018_paper.pdf)
-* **Tags**: Neural Network, Uncertainty
+* **Tags**: Neural Network, Uncertainty, ECCV 2018
 * **Year**: 2018
 
 # Summary

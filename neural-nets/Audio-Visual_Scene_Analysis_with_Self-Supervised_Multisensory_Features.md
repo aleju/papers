@@ -3,7 +3,7 @@
 * **Title**: Audio-Visual Scene Analysis with Self-Supervised Multisensory Features
 * **Authors**: Andrew Owens, Alexei A. Efros
 * **Link**: [http://openaccess.thecvf.com/content_ECCV_2018/papers/Andrew_Owens_Audio-Visual_Scene_Analysis_ECCV_2018_paper.pdf](http://openaccess.thecvf.com/content_ECCV_2018/papers/Andrew_Owens_Audio-Visual_Scene_Analysis_ECCV_2018_paper.pdf)
-* **Tags**: Neural Network, Audio, Sound Source Localization, Action Recognition, Sound Source Separation, Self-Supervised
+* **Tags**: Neural Network, Audio, Sound Source Localization, Action Recognition, Sound Source Separation, Self-Supervised, ECCV 2018
 * **Year**: 2018
 
 # See also

@@ -3,7 +3,7 @@
 * **Title**: Acquisition of Localization Confidence for Accurate Object Detection
 * **Authors**: Borui Jiang, Ruixuan Luo, Jiayuan Mao, Tete Xiao, Yuning Jiang
 * **Link**: [http://openaccess.thecvf.com/content_ECCV_2018/papers/Borui_Jiang_Acquisition_of_Localization_ECCV_2018_paper.pdf](http://openaccess.thecvf.com/content_ECCV_2018/papers/Borui_Jiang_Acquisition_of_Localization_ECCV_2018_paper.pdf)
-* **Tags**: Neural Network, Object Detection
+* **Tags**: Neural Network, Object Detection, ECCV 2018
 * **Year**: 2018
 
 # Summary

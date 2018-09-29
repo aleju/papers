@@ -3,7 +3,7 @@
 * **Title**: Convolutional Networks with Adaptive Inference Graphs
 * **Authors**: Andreas Veit, Serge Belongie
 * **Link**: [http://openaccess.thecvf.com/content_ECCV_2018/papers/Andreas_Veit_Convolutional_Networks_with_ECCV_2018_paper.pdf](http://openaccess.thecvf.com/content_ECCV_2018/papers/Andreas_Veit_Convolutional_Networks_with_ECCV_2018_paper.pdf)
-* **Tags**: Neural Network, Gating, Gumbel
+* **Tags**: Neural Network, Gating, Gumbel, ECCV 2018
 * **Year**: 2018
 
 # Summary

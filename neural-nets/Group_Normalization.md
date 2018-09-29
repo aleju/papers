@@ -3,7 +3,7 @@
 * **Title**: Group Normalization
 * **Authors**: Yuxin Wu, Kaiming He
 * **Link**: [http://openaccess.thecvf.com/content_ECCV_2018/papers/Yuxin_Wu_Group_Normalization_ECCV_2018_paper.pdf](http://openaccess.thecvf.com/content_ECCV_2018/papers/Yuxin_Wu_Group_Normalization_ECCV_2018_paper.pdf)
-* **Tags**: Neural Network, Normalization
+* **Tags**: Neural Network, Normalization, ECCV 2018
 * **Year**: 2018
 
 # Summary
