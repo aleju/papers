@@ -3,6 +3,7 @@
 This repository contains short summaries of some machine learning papers.
 
 ## Added ???
+  * ****`UNSUPERVISED LEARNING`**** ****`ECCV 2018`**** [Deep Clustering for Unsupervised Learning of Visual Features](neural-nets/Deep_Clustering_for_Unsupervised_Learning_of_Visual_Features.md)
   * ****`OBJECT DETECTION`**** ****`POINT CLOUD`**** ****`SELF-DRIVING CARS`**** ****`ECCV 2018`**** [Deep Continuous Fusion for Multi-Sensor 3D Object Detection](neural-nets/Deep_Continuous_Fusion_for_Multi-Sensor_3D_Object_Detection.md)
   * ****`AUDIO`**** ****`SOUND SOURCE LOCALIZATION`**** ****`ACTION RECOGNITION`**** ****`SOUND SOURCE SEPARATION`**** ****`SELF-SUPERVISED`**** ****`ECCV 2018`**** [Audio-Visual Scene Analysis with Self-Supervised Multisensory Features](neural-nets/Audio-Visual_Scene_Analysis_with_Self-Supervised_Multisensory_Features.md)
   * ****`UNCERTAINTY`**** ****`ECCV 2018`**** [Towards Realistic Predictors](neural-nets/Towards_Realistic_Predictors.md)
