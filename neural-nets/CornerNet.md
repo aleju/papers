@@ -36,8 +36,7 @@
       * They place on each ground truth location an unnormalized 2D gaussian `e^(-(x^2 + y^2)/2sigma^2)`, where `sigma=r_k/3`.
     * Corner Position Loss
       * They use a variant of Focal Loss, applied once for the top-left corner heatmaps and once for bottom-right corners.
-      * ![comparison](images/Group_Normalization/comparison.jpg?raw=true "comparison")
-      * TODO eq 1   corner_loss.jpg
+      * ![comparison](images/CornerNet/corner_loss.jpg?raw=true "comparison")
       * where
         * `y_cij` is ground truth corner heatmap for class `c` at location `y=i` and `x=j`.
         * `p_cij` is the predicted heatmap.
@@ -48,18 +47,17 @@
       * That can lead to predicted locations being slightly off compared to true locations.
       * They compensate for that by letting the network learn that offset (per spatial location).
       * The ground truth for the offset value is:
-        * ![comparison](images/Group_Normalization/comparison.jpg?raw=true "comparison")
-        * TODO eq 2   corner_offset.jpg
+        * ![comparison](images/CornerNet/corner_offset.jpg?raw=true "comparison")
         * where `n` is the downsampling factor.
       * They apply a smooth L1 loss to the offset predictions.
       * They apply the loss only at the ground truth corner locations.
   * Grouping Corners
     * Top-left and bottom-right corners have to be matched in order to create a full bounding box.
-    * They do this by predicted embedding vectors for each top-left and bottom-right corner.
+    * They do this by predicting embedding vectors for each top-left and bottom-right corner.
       1. They train these to be similar for corners belonging to the same objects.
       2. They train these to be different for corners belonging to different objects.
     * For (1) they use a pull loss and for (2) a push loss:
-      * ![embedding loss](images/Group_Normalization/embedding_loss.jpg?raw=true "embedding loss")
+      * ![embedding loss](images/CornerNet/embedding_loss.jpg?raw=true "embedding loss")
       * where
         * `e_t_k` is the embedding of the top left corner of object `k`.
         * `e_b_k` is analogously is the embedding of the bottom right corner.
@@ -71,13 +69,13 @@
     * In many cases, there is no local evidence for an object around its top-left or bottom-right corners.
     * But there is evidence around its top and left sides (analogously bottom and right sides).
     * Visualization of the problem:
-      * ![local evidence](images/Group_Normalization/local_evidence.jpg?raw=true "local evidence")
+      * ![local evidence](images/CornerNet/local_evidence.jpg?raw=true "local evidence")
     * They compensate for that by max-pooling along the sides of each potential object.
       E.g. for the top-left corner they would max-pool along the corner's row and to the right,
       as well as along the corner's column und to the bottom.
       They sum both of these results.
     * Visualization:
-      * ![corner pooling](images/Group_Normalization/corner_pooling.jpg?raw=true "corner pooling")
+      * ![corner pooling](images/CornerNet/corner_pooling.jpg?raw=true "corner pooling")
   * Architecture
     * They use stacked hourglass networks as their backbone (with minor modifications, e.g. striding instead of max-pooling).
     * They place a corner pooling layer in residual fashion on top of the backbone.
@@ -86,7 +84,7 @@
       * Embeddings branch (predicts `?*C` channels).
       * Offsets branch (predicts `2*C` channels).
     * Visualization:
-      * ![architecture](images/Group_Normalization/architecture.jpg?raw=true "architecture")
+      * ![architecture](images/CornerNet/architecture.jpg?raw=true "architecture")
   * Bounding box extraction
     * To get bounding boxes out of their corner predictions, they first apply non-maximum suppression to their corner heatmaps via a 3x3 max pooling layer.
     * Then they extract the top 100 top-left and bottom-right corners over all classes.
@@ -127,5 +125,5 @@
       They beat the best multi-scale competitor (RefineDet512) by 0.3 points.
     * They reach 40.5 AP in a single-scale approach. They beat the best single-scale competitor (RetinaNet800) by 1.4 points.
     * Example predictions and extracted bounding boxes (each left: top-left corner, each right: bottom-right):
-      * ![predictions](images/Group_Normalization/predictions.jpg?raw=true "predictions")
+      * ![predictions](images/CornerNet/predictions.jpg?raw=true "predictions")
 
