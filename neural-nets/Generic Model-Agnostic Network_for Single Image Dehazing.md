@@ -14,7 +14,7 @@
     - Haze and smog are among the most common environmental factors impacting image quality and, therefore, image analysis. This paper proposes an end-to-end generative method for image dehazing.
     - It is based on designing a fully convolutional neural network to recognize haze structures in input images and restore clear, haze-free images.
     - Functionally addressing, this architecture is composed of an end-to-end generative method which uses an encoder-decoder approach to solve the dehazing problem.
-    - Input is a synthetically hazed image from [SOTS Outdoor](https://www.kaggle.com/wwwwwee/dehaze) dataset. Output is a dehazed image.
+    - Input is a synthetically hazed image from [SOTS Outdoor and Indoor](https://www.kaggle.com/wwwwwee/dehaze) dataset. Output is a dehazed image.
     
 - How
     - *Architecture*
@@ -32,8 +32,12 @@
         
      - *Training*
         - All layers in GMAN have 64 filters (kernels), except for the down-sampling ones which have 128 filters, with spatial size of 3*3. The network requires an input with size 224*224, so every image in the training dataset is randomly cropped in order to fit the input size3.
-        - The batch size is set to 35 to balance the training speed and the memory consumption on the GPU. For accelerated training, the Adam optimizer is used with the following settings: the initial learning rate of 0.001, 1 = 0:9, and 2 = 0:999.
+        - The batch size is set to 35 to balance the training speed and the memory consumption on the GPU. For accelerated training, the Adam optimizer is used with the following settings: the initial learning rate of 0.001, beta1 = 0:9, and beta2 = 0:999.
         - The network and its training process have been implemented using TensorFlow software framework and carried out on an NVIDIA Titan Xp GPU. After 20 epochs of training, the loss function drops to a value of 0.0004, which is considered a good stopping point.
         
 - Results
-  - 
+  - On SOTS Outdoor PSNR: 28.19, SSIM: o.9638, on SOTS Indoor PSNR: 20.53, SSIM: 0.8081.
+  - Experimental results have verified the potential of GMAN in generating haze-free images and shown that it is capable of overcoming some of the common pitfalls of state-of-the-art methods, like color darkening and excessive edge sharpening.
+  - Moreover, due to the generic architecture of GMAN, it could lay the groundwork for further research on general-purposed image restoration. Indeed, we expect that through training and some design tweaks, our network could be generalized to capture various types of image noise and distortions.
+  ![img2](https://raw.githubusercontent.com/sanchitvj/Image-Dehazing-using-GMAN-net/master/results/test%20results/test_104.png)
+  ![img3](https://raw.githubusercontent.com/sanchitvj/Image-Dehazing-using-GMAN-net/master/results/test%20results/test_103.png)
